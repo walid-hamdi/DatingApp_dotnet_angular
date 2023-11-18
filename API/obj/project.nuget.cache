@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gdLooSnaDQOi0VAytN36jE4VPszG+Em39u00gdZCbRGBib1hnYfEGWQf+Z1JNYNnKmPHmIhpAZgvURyI0Fic+g==",
+  "dgSpecHash": "Fhb36aESO7UE19zUwfKxOsVl69XHAzf8Wc181wSKwH0KoYoUFvb2VgXoN7mHU1wnbWcfjND3HtjuIhUA03aZQg==",
   "success": true,
-  "projectFilePath": "E:\\Walid Info\\DotnetProjects\\DatingApp\\API\\API.csproj",
+  "projectFilePath": "E:\\Walid Info\\DotnetProjects\\DatingApp\\api\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\w.hamdi.RIEKERWORLD\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\w.hamdi.RIEKERWORLD\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.14\\microsoft.data.sqlite.core.7.0.14.nupkg.sha512",
