@@ -1,32 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Walid Info\\DotnetProjects\\DatingApp\\api\\API.csproj": {}
+    "C:\\Users\\ASUS\\Documents\\dotnetprojects\\datingapp_dotnet\\api\\API.csproj": {}
   },
   "projects": {
-    "E:\\Walid Info\\DotnetProjects\\DatingApp\\api\\API.csproj": {
+    "C:\\Users\\ASUS\\Documents\\dotnetprojects\\datingapp_dotnet\\api\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Walid Info\\DotnetProjects\\DatingApp\\api\\API.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\Documents\\dotnetprojects\\datingapp_dotnet\\api\\API.csproj",
         "projectName": "API",
-        "projectPath": "E:\\Walid Info\\DotnetProjects\\DatingApp\\api\\API.csproj",
-        "packagesPath": "C:\\Users\\w.hamdi.RIEKERWORLD\\.nuget\\packages\\",
-        "outputPath": "E:\\Walid Info\\DotnetProjects\\DatingApp\\api\\obj\\",
+        "projectPath": "C:\\Users\\ASUS\\Documents\\dotnetprojects\\datingapp_dotnet\\api\\API.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ASUS\\Documents\\dotnetprojects\\datingapp_dotnet\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\w.hamdi.RIEKERWORLD\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -37,18 +35,18 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.14, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[7.0.14, )"
+              "version": "[8.0.0, )"
             }
           },
           "imports": [
@@ -70,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
