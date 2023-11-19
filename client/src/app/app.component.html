@@ -1,4 +1,6 @@
-<div *ngFor="let user of users">
-  <p>{{ user.id }}</p>
-  <p>{{ user.userName }}</p>
-</div>
+<mat-card *ngFor="let user of users">
+  <mat-card-header>
+    <mat-card-title>{{ user.userName }}</mat-card-title>
+    <mat-card-subtitle>User ID: {{ user.id }}</mat-card-subtitle>
+  </mat-card-header>
+</mat-card>

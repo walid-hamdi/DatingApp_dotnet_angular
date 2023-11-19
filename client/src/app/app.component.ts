@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MatCardModule } from '@angular/material/card';
 
 interface User {
   id: number;
@@ -11,7 +12,7 @@ interface User {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HttpClientModule],
+  imports: [CommonModule, RouterOutlet, HttpClientModule, MatCardModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
