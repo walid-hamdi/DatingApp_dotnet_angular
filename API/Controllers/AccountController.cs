@@ -27,7 +27,7 @@ namespace API.Controllers
         {
             if (await UserExists(registerDTO.Username.ToLower())) return BadRequest("Username is taken.");
 
-            using var hmac = new HMACSHA3_512();
+            using var hmac = new HMACSHA256();
 
             var user = new AppUser
             {
@@ -36,7 +36,7 @@ namespace API.Controllers
                 PasswordSalt = hmac.Key
             };
 
-            _context.Add(user);
+            _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
             return user;
