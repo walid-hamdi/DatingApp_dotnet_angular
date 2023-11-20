@@ -2526,24 +2526,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ASUS\\.nuget\\packages\\": {}
+    "C:\\Users\\w.hamdi.RIEKERWORLD\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\ASUS\\Documents\\dotnetprojects\\datingapp_dotnet\\API\\API.csproj",
+      "projectUniqueName": "E:\\Walid Info\\DotnetProjects\\DatingApp_DotNet\\api\\API.csproj",
       "projectName": "API",
-      "projectPath": "c:\\Users\\ASUS\\Documents\\dotnetprojects\\datingapp_dotnet\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\ASUS\\Documents\\dotnetprojects\\datingapp_dotnet\\API\\obj\\",
+      "projectPath": "E:\\Walid Info\\DotnetProjects\\DatingApp_DotNet\\api\\API.csproj",
+      "packagesPath": "C:\\Users\\w.hamdi.RIEKERWORLD\\.nuget\\packages\\",
+      "outputPath": "E:\\Walid Info\\DotnetProjects\\DatingApp_DotNet\\api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\w.hamdi.RIEKERWORLD\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
