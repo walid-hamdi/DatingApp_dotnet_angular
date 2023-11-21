@@ -23,7 +23,7 @@ namespace API.Services
              new Claim(JwtRegisteredClaimNames.NameId,user.UserName)
            };
 
-            var creds = new SigningCredentials(_key, SecurityAlgorithms.EcdsaSha256Signature);
+            var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha256);
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {

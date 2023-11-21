@@ -244,3 +244,8 @@ E:\Walid Info\DotnetProjects\DatingApp_DotNet\api\obj\Debug\net8.0\refint\API.dl
 E:\Walid Info\DotnetProjects\DatingApp_DotNet\api\obj\Debug\net8.0\API.pdb
 E:\Walid Info\DotnetProjects\DatingApp_DotNet\api\obj\Debug\net8.0\API.genruntimeconfig.cache
 E:\Walid Info\DotnetProjects\DatingApp_DotNet\api\obj\Debug\net8.0\ref\API.dll
+E:\Walid Info\DotnetProjects\DatingApp_DotNet\api\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+E:\Walid Info\DotnetProjects\DatingApp_DotNet\api\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\Walid Info\DotnetProjects\DatingApp_DotNet\api\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+E:\Walid Info\DotnetProjects\DatingApp_DotNet\api\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+E:\Walid Info\DotnetProjects\DatingApp_DotNet\api\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
