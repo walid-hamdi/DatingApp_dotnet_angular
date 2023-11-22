@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "zGlcrMY/j6F6TwyLTlbChtoJw/56Y9UMwED4d8Z23lb2VCvh7XHzGudKpIUxry2dZ68772ofUro7u3Yo+fSFNQ==",
+  "dgSpecHash": "IRnrqZAgIEYdp4u6wsECyB59DNWh1sAGpMmc2BpH5+68xM+kkf4F6wC39ogypJyz0a4VDIQ2vzkEFUhDQZJnXg==",
   "success": true,
   "projectFilePath": "E:\\Walid Info\\DotnetProjects\\DatingApp_DotNet\\api\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\w.hamdi.RIEKERWORLD\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\w.hamdi.RIEKERWORLD\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.0\\microsoft.aspnetcore.authentication.jwtbearer.8.0.0.nupkg.sha512",
     "C:\\Users\\w.hamdi.RIEKERWORLD\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\w.hamdi.RIEKERWORLD\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.3\\microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
     "C:\\Users\\w.hamdi.RIEKERWORLD\\.nuget\\packages\\microsoft.codeanalysis.common\\4.5.0\\microsoft.codeanalysis.common.4.5.0.nupkg.sha512",
@@ -32,6 +33,8 @@
     "C:\\Users\\w.hamdi.RIEKERWORLD\\.nuget\\packages\\microsoft.identitymodel.abstractions\\7.0.3\\microsoft.identitymodel.abstractions.7.0.3.nupkg.sha512",
     "C:\\Users\\w.hamdi.RIEKERWORLD\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\7.0.3\\microsoft.identitymodel.jsonwebtokens.7.0.3.nupkg.sha512",
     "C:\\Users\\w.hamdi.RIEKERWORLD\\.nuget\\packages\\microsoft.identitymodel.logging\\7.0.3\\microsoft.identitymodel.logging.7.0.3.nupkg.sha512",
+    "C:\\Users\\w.hamdi.RIEKERWORLD\\.nuget\\packages\\microsoft.identitymodel.protocols\\7.0.3\\microsoft.identitymodel.protocols.7.0.3.nupkg.sha512",
+    "C:\\Users\\w.hamdi.RIEKERWORLD\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\7.0.3\\microsoft.identitymodel.protocols.openidconnect.7.0.3.nupkg.sha512",
     "C:\\Users\\w.hamdi.RIEKERWORLD\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.0.3\\microsoft.identitymodel.tokens.7.0.3.nupkg.sha512",
     "C:\\Users\\w.hamdi.RIEKERWORLD\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\w.hamdi.RIEKERWORLD\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.6\\sqlitepclraw.bundle_e_sqlite3.2.1.6.nupkg.sha512",

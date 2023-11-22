@@ -249,3 +249,6 @@ E:\Walid Info\DotnetProjects\DatingApp_DotNet\api\bin\Debug\net8.0\Microsoft.Ide
 E:\Walid Info\DotnetProjects\DatingApp_DotNet\api\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
 E:\Walid Info\DotnetProjects\DatingApp_DotNet\api\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 E:\Walid Info\DotnetProjects\DatingApp_DotNet\api\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+E:\Walid Info\DotnetProjects\DatingApp_DotNet\api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\Walid Info\DotnetProjects\DatingApp_DotNet\api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+E:\Walid Info\DotnetProjects\DatingApp_DotNet\api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
