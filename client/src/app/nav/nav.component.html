@@ -1,0 +1,24 @@
+<mat-toolbar color="primary">
+  <span>
+    <!-- <img
+      src="path/to/your/dating-app-logo.png"
+      alt="Dating App Logo"
+      height="30"
+    /> -->
+    Dating App
+  </span>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/matches">Matches</button>
+  <button mat-button routerLink="/lists">Lists</button>
+  <button mat-button routerLink="/messages">Messages</button>
+
+  <div class="login-section">
+    <mat-form-field>
+      <input matInput placeholder="Email" type="email" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Password" type="password" />
+    </mat-form-field>
+    <button mat-button color="accent">Login</button>
+  </div>
+</mat-toolbar>
