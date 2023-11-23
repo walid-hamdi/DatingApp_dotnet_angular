@@ -1,12 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { AccountService } from '../account.service';
+import { User, UserLogin } from '../model/user';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-nav',
@@ -20,29 +22,21 @@ import { AccountService } from '../account.service';
     FormsModule,
     MatMenuModule,
   ],
-  providers: [AccountService],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css',
 })
-export class NavComponent {
-  model: any = {};
-  loggedIn = false;
+export class NavComponent implements OnInit {
+  model: UserLogin = { username: '', password: '' };
 
-  constructor(private accountService: AccountService) {}
+  constructor(public accountService: AccountService) {}
+
+  ngOnInit(): void {}
 
   login() {
-    this.accountService.login(this.model).subscribe({
-      next: (response) => {
-        console.log(response);
-        this.loggedIn = true;
-      },
-      error: (error) => {
-        console.error(error);
-      },
-    });
+    this.accountService.login(this.model).subscribe((response) => {});
   }
 
   logout() {
-    this.loggedIn = false;
+    this.accountService.logout();
   }
 }

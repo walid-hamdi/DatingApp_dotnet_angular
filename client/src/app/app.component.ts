@@ -1,14 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { RouterOutlet } from '@angular/router';
 import { NavComponent } from './nav/nav.component';
-
-interface User {
-  id: number;
-  userName: string;
-}
+import { USER_KEY } from './model/constants';
+import { AccountService } from './account.service';
+import { User, UserProfile } from './model/user';
 
 @Component({
   selector: 'app-root',
@@ -20,20 +18,30 @@ interface User {
     MatCardModule,
     NavComponent,
   ],
+  providers: [AccountService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  // users: User[] = [];
-  // constructor(private http: HttpClient) {}
+  baseUrl = 'https://localhost:5001/api';
+  users: UserProfile[] = [];
+
+  constructor(
+    private http: HttpClient,
+    private accountService: AccountService
+  ) {}
+
   ngOnInit(): void {
+    const user: User | null = JSON.parse(localStorage.getItem(USER_KEY) ?? '');
+    this.accountService.setCurrentUser(user);
     this.getUsers();
   }
+
   getUsers() {
-    // return this.http
-    //   .get<User[]>('https://localhost:5001/api/users')
-    //   .subscribe((users) => {
-    //     this.users = users;
-    //   });
+    return this.http
+      .get<UserProfile[]>(`${this.baseUrl}/users`)
+      .subscribe((users) => {
+        this.users = users;
+      });
   }
 }

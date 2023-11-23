@@ -9,14 +9,16 @@
   </span>
   <span class="spacer"></span>
 
-  <ng-container *ngIf="loggedIn">
+  <ng-container *ngIf="accountService.currentUser$ | async">
     <button mat-button routerLink="/matches">Matches</button>
     <button mat-button routerLink="/lists">Lists</button>
     <button mat-button routerLink="/messages">Messages</button>
   </ng-container>
 
-  <ng-container *ngIf="loggedIn">
-    <button mat-button [matMenuTriggerFor]="menu">{{ model.username }}</button>
+  <ng-container *ngIf="accountService.currentUser$ | async">
+    <button mat-button [matMenuTriggerFor]="menu">
+      {{ (accountService.currentUser$ | async)?.username }}
+    </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item (click)="logout()">Logout</button>
     </mat-menu>
@@ -26,7 +28,7 @@
     class="login-section"
     #loginForm="ngForm"
     (submit)="login()"
-    *ngIf="!loggedIn"
+    *ngIf="!(accountService.currentUser$ | async)"
   >
     <mat-form-field>
       <input
