@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
+import { RouterOutlet } from '@angular/router';
 import { NavComponent } from './nav/nav.component';
 
 interface User {

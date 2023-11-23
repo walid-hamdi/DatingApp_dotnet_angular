@@ -8,17 +8,44 @@
     Dating App
   </span>
   <span class="spacer"></span>
-  <button mat-button routerLink="/matches">Matches</button>
-  <button mat-button routerLink="/lists">Lists</button>
-  <button mat-button routerLink="/messages">Messages</button>
 
-  <div class="login-section">
+  <ng-container *ngIf="loggedIn">
+    <button mat-button routerLink="/matches">Matches</button>
+    <button mat-button routerLink="/lists">Lists</button>
+    <button mat-button routerLink="/messages">Messages</button>
+  </ng-container>
+
+  <ng-container *ngIf="loggedIn">
+    <button mat-button [matMenuTriggerFor]="menu">{{ model.username }}</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
+  </ng-container>
+
+  <form
+    class="login-section"
+    #loginForm="ngForm"
+    (submit)="login()"
+    *ngIf="!loggedIn"
+  >
     <mat-form-field>
-      <input matInput placeholder="Email" type="email" />
+      <input
+        name="username"
+        [(ngModel)]="model.username"
+        matInput
+        placeholder="Username"
+        type="text"
+      />
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Password" type="password" />
+      <input
+        name="password"
+        [(ngModel)]="model.password"
+        matInput
+        placeholder="Password"
+        type="password"
+      />
     </mat-form-field>
-    <button mat-button color="accent">Login</button>
-  </div>
+    <button mat-button>Login</button>
+  </form>
 </mat-toolbar>
