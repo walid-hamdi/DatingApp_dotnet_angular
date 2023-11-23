@@ -7,6 +7,7 @@ import { NavComponent } from './nav/nav.component';
 import { USER_KEY } from './model/constants';
 import { AccountService } from './account.service';
 import { User, UserProfile } from './model/user';
+import { HomeComponent } from './home/home.component';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ import { User, UserProfile } from './model/user';
     HttpClientModule,
     MatCardModule,
     NavComponent,
+    HomeComponent,
   ],
   providers: [AccountService],
   templateUrl: './app.component.html',
