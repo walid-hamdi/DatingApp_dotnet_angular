@@ -1,5 +1,5 @@
 <!-- app.component.html -->
-<div class="homepage-container">
+<div class="homepage-container" *ngIf="!registerPage">
   <mat-card class="homepage-card">
     <mat-card-header>
       <div class="header-text">
@@ -27,6 +27,13 @@
       <button mat-raised-button color="primary" routerLink="/matches">
         View Your Matches
       </button>
+      <button mat-raised-button color="info" (click)="register()">
+        Register
+      </button>
     </mat-card-actions>
   </mat-card>
 </div>
+
+<ng-container *ngIf="registerPage">
+  <app-register (onCancel)="cancel($event)"></app-register>
+</ng-container>

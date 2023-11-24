@@ -1,0 +1,12 @@
+/* registration.component.css */
+.example-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Set the form to take the full height of the viewport */
+}
+
+.example-full-width {
+  width: 50%;
+}

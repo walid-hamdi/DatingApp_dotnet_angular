@@ -6,9 +6,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { RouterModule, Router } from '@angular/router';
 import { AccountService } from '../account.service';
-import { User, UserLogin } from '../model/user';
-import { Observable } from 'rxjs';
+import { UserLogin } from '../model/user';
 
 @Component({
   selector: 'app-nav',
@@ -21,19 +21,23 @@ import { Observable } from 'rxjs';
     MatFormFieldModule,
     FormsModule,
     MatMenuModule,
+    RouterModule,
   ],
+
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css',
 })
 export class NavComponent implements OnInit {
   model: UserLogin = { username: '', password: '' };
 
-  constructor(public accountService: AccountService) {}
+  constructor(public accountService: AccountService, private router: Router) {}
 
   ngOnInit(): void {}
 
   login() {
-    this.accountService.login(this.model).subscribe((response) => {});
+    this.accountService.login(this.model).subscribe((response) => {
+      this.router.navigateByUrl('/remember');
+    });
   }
 
   logout() {
