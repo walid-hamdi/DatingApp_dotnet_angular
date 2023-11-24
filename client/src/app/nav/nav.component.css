@@ -11,3 +11,9 @@
   margin-right: 8px;
   margin-top: 1.4rem;
 }
+
+.active {
+  /* Your styles for the active link go here */
+  background-color: #007bff;
+  color: #ffffff;
+}

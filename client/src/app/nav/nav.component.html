@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <span>
+  <span routerLink="/">
     <!-- <img
       src="path/to/your/dating-app-logo.png"
       alt="Dating App Logo"
@@ -10,9 +10,15 @@
   <span class="spacer"></span>
 
   <ng-container *ngIf="accountService.currentUser$ | async">
-    <button mat-button routerLink="/matches">Matches</button>
-    <button mat-button routerLink="/lists">Lists</button>
-    <button mat-button routerLink="/messages">Messages</button>
+    <button mat-button routerLink="/members" routerLinkActive="active">
+      Matches
+    </button>
+    <button mat-button routerLink="/lists" routerLinkActive="active">
+      Lists
+    </button>
+    <button mat-button routerLink="/messages" routerLinkActive="active">
+      Messages
+    </button>
   </ng-container>
 
   <ng-container *ngIf="accountService.currentUser$ | async">

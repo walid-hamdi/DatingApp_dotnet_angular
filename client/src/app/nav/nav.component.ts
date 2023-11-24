@@ -1,14 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { RouterModule } from '@angular/router';
+import { Router } from 'express';
 import { AccountService } from '../account.service';
-import { User, UserLogin } from '../model/user';
-import { Observable } from 'rxjs';
-import { FormsModule } from '@angular/forms';
+import { UserLogin } from '../model/user';
 
 @Component({
   selector: 'app-nav',
@@ -21,7 +22,9 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     FormsModule,
     MatMenuModule,
+    RouterModule,
   ],
+
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css',
 })
