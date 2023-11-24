@@ -252,3 +252,11 @@ E:\Walid Info\DotnetProjects\DatingApp_DotNet\api\bin\Debug\net8.0\System.Identi
 E:\Walid Info\DotnetProjects\DatingApp_DotNet\api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 E:\Walid Info\DotnetProjects\DatingApp_DotNet\api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
 E:\Walid Info\DotnetProjects\DatingApp_DotNet\api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\asus\documents\dotnetprojects\datingapp_dotnet\api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\asus\documents\dotnetprojects\datingapp_dotnet\api\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\asus\documents\dotnetprojects\datingapp_dotnet\api\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\asus\documents\dotnetprojects\datingapp_dotnet\api\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\asus\documents\dotnetprojects\datingapp_dotnet\api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\asus\documents\dotnetprojects\datingapp_dotnet\api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\asus\documents\dotnetprojects\datingapp_dotnet\api\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\asus\documents\dotnetprojects\datingapp_dotnet\api\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
