@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { RouterModule, Router } from '@angular/router';
 import { AccountService } from '../account.service';
 import { UserLogin } from '../model/user';
@@ -30,17 +31,37 @@ import { UserLogin } from '../model/user';
 export class NavComponent implements OnInit {
   model: UserLogin = { username: '', password: '' };
 
-  constructor(public accountService: AccountService, private router: Router) {}
+  constructor(
+    public accountService: AccountService,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {}
 
   login() {
-    this.accountService.login(this.model).subscribe((response) => {
-      this.router.navigateByUrl('/remember');
-    });
+    this.accountService.login(this.model).subscribe(
+      (response) => {
+        this.router.navigateByUrl('/remember');
+      },
+      ({ error }) => {
+        this.openErrorToast(error);
+        this.model.username = '';
+        this.model.password = '';
+      }
+    );
   }
 
   logout() {
     this.accountService.logout();
+  }
+
+  openErrorToast(message: string): void {
+    this.snackBar.open(message, 'Close', {
+      duration: 5000, // duration in milliseconds
+      verticalPosition: 'top', // or 'bottom'
+      horizontalPosition: 'center', // or 'start' | 'end' | 'left' | 'right'
+      panelClass: ['error-toast'], // custom CSS class for styling
+    });
   }
 }

@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AccountService } from '../account.service';
 
 @Component({
@@ -27,14 +28,35 @@ export class RegisterComponent {
 
   model: UserLogin = { username: '', password: '' };
 
-  constructor(private accountService: AccountService) {}
+  constructor(
+    private accountService: AccountService,
+    private snackBar: MatSnackBar
+  ) {}
 
   register() {
-    this.accountService.register(this.model).subscribe(() => {});
-    this.onCancel.emit(false);
+    this.accountService.register(this.model).subscribe(
+      (response) => {
+        console.log(response);
+        this.onCancel.emit(false);
+      },
+      ({ error }) => {
+        this.openErrorToast(error);
+        this.model.username = '';
+        this.model.password = '';
+      }
+    );
   }
 
   cancel() {
     this.onCancel.emit(false);
+  }
+
+  openErrorToast(message: string): void {
+    this.snackBar.open(message, 'Close', {
+      duration: 5000, // duration in milliseconds
+      verticalPosition: 'top', // or 'bottom'
+      horizontalPosition: 'center', // or 'start' | 'end' | 'left' | 'right'
+      panelClass: ['error-toast'], // custom CSS class for styling
+    });
   }
 }
