@@ -20,7 +20,6 @@ import { HomeComponent } from './home/home.component';
     NavComponent,
     HomeComponent,
   ],
-  providers: [AccountService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
@@ -34,7 +33,7 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const user: User | null = JSON.parse(localStorage.getItem(USER_KEY) ?? '');
+    const user: User | null = JSON.parse(localStorage.getItem(USER_KEY)!);
     this.accountService.setCurrentUser(user);
     this.getUsers();
   }
@@ -46,4 +45,8 @@ export class AppComponent implements OnInit {
         this.users = users;
       });
   }
+
+  // Add guards
+  // Add Theme
+  // Add Shared Module
 }
