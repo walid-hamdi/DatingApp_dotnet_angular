@@ -1,5 +1,4 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { RouterOutlet } from '@angular/router';
@@ -8,6 +7,7 @@ import { USER_KEY } from './model/constants';
 import { AccountService } from './account.service';
 import { User, UserProfile } from './model/user';
 import { HomeComponent } from './home/home.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -15,11 +15,12 @@ import { HomeComponent } from './home/home.component';
   imports: [
     CommonModule,
     RouterOutlet,
-    HttpClientModule,
     MatCardModule,
     NavComponent,
     HomeComponent,
+    HttpClientModule,
   ],
+  providers: [AccountService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
