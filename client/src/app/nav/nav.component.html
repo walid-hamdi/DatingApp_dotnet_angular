@@ -21,6 +21,10 @@
     </button>
   </ng-container>
 
+  <button mat-button routerLink="/error" routerLinkActive="active">
+    Errors
+  </button>
+
   <ng-container *ngIf="accountService.currentUser$ | async">
     <button mat-button [matMenuTriggerFor]="menu">
       {{ (accountService.currentUser$ | async)?.username }}
