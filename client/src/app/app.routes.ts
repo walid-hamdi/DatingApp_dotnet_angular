@@ -6,6 +6,7 @@ import { MemberListComponent } from './members/member-list/member-list.component
 import { MessagesComponent } from './messages/messages.component';
 import { authGuard } from './guards/auth.guard';
 import { ErrorComponent } from './error/error.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 export const routes: Routes = [
   {
@@ -35,6 +36,7 @@ export const routes: Routes = [
       },
     ],
   },
+  { path: 'not-found', component: NotfoundComponent },
   { path: 'error', component: ErrorComponent },
   {
     path: '**',
