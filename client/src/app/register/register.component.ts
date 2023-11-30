@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserLogin } from '../model/user';
 import { FormsModule } from '@angular/forms';
@@ -28,10 +28,8 @@ export class RegisterComponent {
 
   model: UserLogin = { username: '', password: '' };
 
-  constructor(
-    private accountService: AccountService,
-    private snackBar: MatSnackBar
-  ) {}
+  private accountService = inject(AccountService);
+  private snackBar = inject(MatSnackBar);
 
   register() {
     this.accountService.register(this.model).subscribe(

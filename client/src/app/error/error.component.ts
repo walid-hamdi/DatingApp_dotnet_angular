@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { Component, inject } from '@angular/core';
 
 @Component({
   selector: 'app-error',
@@ -11,31 +11,43 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ErrorComponent {
   baseUrl = 'https://localhost:5001/api';
-  constructor(private http: HttpClient) {}
+  errors: [] = [];
+  // constructor(private http: HttpClient) {}
+  http = inject(HttpClient);
 
   get400Error() {
-    this.http.get(`${this.baseUrl}/buggy/bad-request`).subscribe(
-      (res) => console.log(res),
-      (error) => console.log(error)
-    );
+    this.http.get(`${this.baseUrl}/buggy/bad-request`).subscribe({
+      next: (req) => {},
+      error: (err) => {
+        this.errors = err;
+
+        console.log(this.errors);
+      },
+    });
   }
   get500Error() {
-    this.http.get(`${this.baseUrl}/buggy/server-error`).subscribe(
-      (res) => console.log(res),
-      (error) => console.log(error)
-    );
+    this.http.get(`${this.baseUrl}/buggy/server-error`).subscribe({
+      next: (req) => {},
+      error: (err) => {
+        this.errors = err;
+      },
+    });
   }
   get401Error() {
-    this.http.get(`${this.baseUrl}/buggy/auth`).subscribe(
-      (res) => console.log(res),
-      (error) => console.log(error)
-    );
+    this.http.get(`${this.baseUrl}/buggy/auth`).subscribe({
+      next: (req) => {},
+      error: (err) => {
+        this.errors = err;
+      },
+    });
   }
 
   get400ValidationError() {
-    this.http.post(`${this.baseUrl}/account/register`, {}).subscribe(
-      (res) => console.log(res),
-      (error) => console.log(error)
-    );
+    this.http.post(`${this.baseUrl}/account/register`, {}).subscribe({
+      next: (req) => {},
+      error: (err) => {
+        this.errors = err;
+      },
+    });
   }
 }

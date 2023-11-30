@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { ReplaySubject, map } from 'rxjs';
 import { USER_KEY } from './model/constants';
 import { User, UserLogin } from './model/user';
@@ -9,10 +9,9 @@ import { User, UserLogin } from './model/user';
 })
 export class AccountService {
   private currentUserSource = new ReplaySubject<User | null>(1);
-  currentUser$ = this.currentUserSource.asObservable();
-
+  private http = inject(HttpClient);
   private baseUrl = 'https://localhost:5001/api';
-  constructor(private http: HttpClient) {}
+  currentUser$ = this.currentUserSource.asObservable();
 
   login(model: UserLogin) {
     return this.http.post<User>(`${this.baseUrl}/account/login`, model).pipe(

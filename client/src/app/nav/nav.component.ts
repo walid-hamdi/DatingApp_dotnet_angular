@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -31,11 +31,9 @@ import { UserLogin } from '../model/user';
 export class NavComponent implements OnInit {
   model: UserLogin = { username: '', password: '' };
 
-  constructor(
-    public accountService: AccountService,
-    private router: Router,
-    private snackBar: MatSnackBar
-  ) {}
+  accountService = inject(AccountService);
+  private router = inject(Router);
+  private snackBar = inject(MatSnackBar);
 
   ngOnInit(): void {}
 

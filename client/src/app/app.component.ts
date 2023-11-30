@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { RouterOutlet } from '@angular/router';
 import { NavComponent } from './nav/nav.component';
@@ -7,7 +7,8 @@ import { USER_KEY } from './model/constants';
 import { AccountService } from './account.service';
 import { User, UserProfile } from './model/user';
 import { HomeComponent } from './home/home.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { ErrorComponent } from './error/error.component';
 
 @Component({
   selector: 'app-root',
@@ -18,9 +19,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     MatCardModule,
     NavComponent,
     HomeComponent,
-    HttpClientModule,
+    ErrorComponent,
   ],
-  providers: [AccountService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
@@ -28,10 +28,8 @@ export class AppComponent implements OnInit {
   baseUrl = 'https://localhost:5001/api';
   users: UserProfile[] = [];
 
-  constructor(
-    private http: HttpClient,
-    private accountService: AccountService
-  ) {}
+  http = inject(HttpClient);
+  accountService = inject(AccountService);
 
   ngOnInit(): void {
     const user: User | null = JSON.parse(localStorage.getItem(USER_KEY)!);
