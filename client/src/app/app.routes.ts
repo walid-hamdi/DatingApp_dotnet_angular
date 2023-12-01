@@ -7,6 +7,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { authGuard } from './guards/auth.guard';
 import { ErrorComponent } from './error/error.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { ErrorServerComponent } from './error-server/error-server.component';
 
 export const routes: Routes = [
   {
@@ -37,6 +38,7 @@ export const routes: Routes = [
     ],
   },
   { path: 'not-found', component: NotfoundComponent },
+  { path: 'server-error', component: ErrorServerComponent },
   { path: 'error', component: ErrorComponent },
   {
     path: '**',
