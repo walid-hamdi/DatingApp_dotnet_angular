@@ -25,6 +25,22 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 });
 
 var app = builder.Build();
+// seed data into db
+using var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
+try
+{
+    var context = services.GetRequiredService<DataContext>();
+    await context.Database.MigrateAsync();
+    await Seed.SeedUsers(context);
+}
+catch (Exception ex)
+{
+    var logger = services.GetRequiredService<ILogger<Program>>();
+    logger.LogError(ex, "An error occurred during migration.");
+}
+await app.RunAsync();
+
 app.UseMiddleware<ExceptionMiddleware>();
 app.UseCors(builder => { builder.AllowAnyHeader().AllowAnyHeader().WithOrigins("http://localhost:4200"); });
 app.UseAuthentication();
