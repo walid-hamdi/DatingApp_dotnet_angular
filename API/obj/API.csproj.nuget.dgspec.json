@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Walid Info\\DotnetProjects\\DatingApp_dotnet_angular\\api\\API.csproj": {}
+    "E:\\Walid Info\\DotnetProjects\\DatingApp_dotnet_angular\\API\\API.csproj": {}
   },
   "projects": {
-    "E:\\Walid Info\\DotnetProjects\\DatingApp_dotnet_angular\\api\\API.csproj": {
+    "E:\\Walid Info\\DotnetProjects\\DatingApp_dotnet_angular\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Walid Info\\DotnetProjects\\DatingApp_dotnet_angular\\api\\API.csproj",
+        "projectUniqueName": "E:\\Walid Info\\DotnetProjects\\DatingApp_dotnet_angular\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "E:\\Walid Info\\DotnetProjects\\DatingApp_dotnet_angular\\api\\API.csproj",
+        "projectPath": "E:\\Walid Info\\DotnetProjects\\DatingApp_dotnet_angular\\API\\API.csproj",
         "packagesPath": "C:\\Users\\w.hamdi.RIEKERWORLD\\.nuget\\packages\\",
-        "outputPath": "E:\\Walid Info\\DotnetProjects\\DatingApp_dotnet_angular\\api\\obj\\",
+        "outputPath": "E:\\Walid Info\\DotnetProjects\\DatingApp_dotnet_angular\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\w.hamdi.RIEKERWORLD\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.0, )"
