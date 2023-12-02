@@ -392,3 +392,5 @@ E:\Walid Info\DotnetProjects\DatingApp_dotnet_angular\API\obj\Debug\net8.0\API.p
 E:\Walid Info\DotnetProjects\DatingApp_dotnet_angular\API\obj\Debug\net8.0\API.genruntimeconfig.cache
 E:\Walid Info\DotnetProjects\DatingApp_dotnet_angular\API\obj\Debug\net8.0\ref\API.dll
 E:\Walid Info\DotnetProjects\DatingApp_dotnet_angular\api\bin\Debug\net8.0\Data\UserSeedData.json
+E:\Walid Info\DotnetProjects\DatingApp_dotnet_angular\api\bin\Debug\net8.0\AutoMapper.dll
+E:\Walid Info\DotnetProjects\DatingApp_dotnet_angular\api\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
