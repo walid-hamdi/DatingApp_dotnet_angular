@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZzPOA5EdsgidzXtUqaFoO8AoBESrOVBDVyqt9NnJbpRkNfff+WXhd1UwHg7Y/ZK9T5SOInIZp4gclI95tHWfRA==",
+  "dgSpecHash": "Bqe9TKz0nK68rK4yEW4Icm0+J7+sxFD2QhQThLXsGbBhYEFS31ZVnNi6tChXbK+2YKIZ7F/vB0ssbRc7LGtYVQ==",
   "success": true,
-  "projectFilePath": "E:\\Walid Info\\DotnetProjects\\DatingApp_dotnet_angular\\api\\API.csproj",
+  "projectFilePath": "E:\\Walid Info\\DotnetProjects\\DatingApp_dotnet_angular\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\w.hamdi.RIEKERWORLD\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\w.hamdi.RIEKERWORLD\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.0\\microsoft.aspnetcore.authentication.jwtbearer.8.0.0.nupkg.sha512",

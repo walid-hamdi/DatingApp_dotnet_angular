@@ -12,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<DataContext>((opt) => { opt.UseSqlite(builder.Configuration.GetConnectionString("defaultConnectionString")); });
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddControllers();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer((options) =>
 {
