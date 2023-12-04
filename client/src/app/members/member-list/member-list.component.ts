@@ -2,11 +2,12 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MembersService } from '../../members.service';
 import { Member } from '../../model/member';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-member-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatCardModule],
   templateUrl: './member-list.component.html',
   styleUrl: './member-list.component.css',
 })
