@@ -23,3 +23,6 @@ namespace API.DTOs
         public ICollection<PhotoDto> Photos { get; set; }
     }
 }
+
+
+
