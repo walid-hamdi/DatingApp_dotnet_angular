@@ -1,9 +1,10 @@
 @for (member of members; track $index) {
-<mat-card>
+<mat-card style="display: inline-block; width: 300px; margin: 10px">
   <img
     mat-card-image
     [src]="member.photoUrl"
     alt="{{ member.username }}'s photo"
+    style="width: 100%; height: 200px; object-fit: cover"
   />
   <mat-card-content>
     <h2>{{ member.username }}</h2>
@@ -11,5 +12,5 @@
   </mat-card-content>
 </mat-card>
 }@empty {
-<p>No user exist.</p>
+<p>No user exists.</p>
 }
