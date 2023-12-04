@@ -3,20 +3,7 @@ import { environment } from './../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { USER_KEY } from './model/constants';
 import { User } from './model/user';
-
-const user = JSON.parse(localStorage.getItem(USER_KEY) ?? '');
-let httpOptions: any = null;
-if (user) {
-  const token = (user as User).token;
-
-  console.log(token);
-
-  httpOptions = {
-    headers: new HttpHeaders({
-      Authorization: `Bearer ${token}`,
-    }),
-  };
-}
+import { Member } from './model/member';
 
 @Injectable({
   providedIn: 'root',
@@ -24,16 +11,28 @@ if (user) {
 export class MembersService {
   baseUrl = environment.apiUrl;
   http = inject(HttpClient);
+  httpOptions: any = null;
 
-  constructor() {}
+  constructor() {
+    const user: User | null = JSON.parse(localStorage.getItem(USER_KEY) || '');
+    if (user) {
+      const token = user.token;
+
+      this.httpOptions = {
+        headers: new HttpHeaders({
+          Authorization: `Bearer ${token}`,
+        }),
+      };
+    }
+  }
 
   getMembers() {
-    return this.http.get<Member[]>(`${this.baseUrl}/users`, httpOptions);
+    return this.http.get<Member[]>(`${this.baseUrl}/users`, this.httpOptions);
   }
   getMember(username: string) {
     return this.http.get<Member>(
       `${this.baseUrl}/users/${username}`,
-      httpOptions
+      this.httpOptions
     );
   }
 }

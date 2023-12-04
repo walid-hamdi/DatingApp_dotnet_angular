@@ -1,1 +1,5 @@
-<p>member-list works!</p>
+@for (member of members; track $index) {
+<p>{{ member.username }}</p>
+}@empty {
+<p>No user exist.</p>
+}
