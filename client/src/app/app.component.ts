@@ -32,9 +32,9 @@ export class AppComponent implements OnInit {
   accountService = inject(AccountService);
 
   ngOnInit(): void {
-    const user: User | null = JSON.parse(localStorage.getItem(USER_KEY)!);
-    this.accountService.setCurrentUser(user);
-    this.getUsers();
+    // const user: User | null = JSON.parse(localStorage.getItem(USER_KEY)!);
+    // this.accountService.setCurrentUser(user);
+    // this.getUsers();
   }
 
   getUsers() {
