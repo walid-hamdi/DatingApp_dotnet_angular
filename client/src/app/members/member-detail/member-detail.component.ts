@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { Member } from '../../model/member';
 import { MembersService } from '../../members.service';
 import { ActivatedRoute } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-member-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatIconModule],
   templateUrl: './member-detail.component.html',
   styleUrl: './member-detail.component.css',
 })

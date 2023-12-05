@@ -1,3 +1,22 @@
+<!-- member-detail.component.html -->
 @if (member) {
-<h1>{{ member.knownAs }}</h1>
+<h2>{{ member.knownAs }}</h2>
+<img [src]="member.photoUrl" alt="{{ member.knownAs }}'s photo" />
+<p>Age: {{ member.age }}</p>
+<p>Last Active: {{ member.lastActive | date }}</p>
+<p>Member Since: {{ member.created | date }}</p>
+<p>Location: {{ member.city }}, {{ member.country }}</p>
+<!-- Add other member details as needed -->
+<div class="button-container">
+  <!-- Heart (Like) Button -->
+  <button mat-icon-button>
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <!-- Message Button -->
+  <button mat-icon-button>
+    <mat-icon>message</mat-icon>
+  </button>
+</div>
+}@else{
+<p>Loading...</p>
 }
