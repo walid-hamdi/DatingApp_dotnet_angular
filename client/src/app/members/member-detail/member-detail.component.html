@@ -1,17 +1,22 @@
 <div class="container">
   @if (member) {
-  <div class="member-detail-container" *ngIf="member">
+  <div class="member-detail-container">
     <div class="header-container">
-      <img [src]="member.photoUrl" alt="{{ member.knownAs }}'s photo" />
+      <img
+        [src]="member.photoUrl || './assets/placeholder.png'"
+        alt="{{ member.knownAs || 'Placeholder' }}'s photo"
+      />
       <h2>{{ member.knownAs }}</h2>
     </div>
     <div class="info-container">
       <p class="detail-item">Age: {{ member.age }}</p>
       <p class="detail-item">Last Active: {{ member.lastActive | date }}</p>
       <p class="detail-item">Member Since: {{ member.created | date }}</p>
+      @if (member.city && member.country) {
       <p class="detail-item">
         Location: {{ member.city }}, {{ member.country }}
       </p>
+      }
       <!-- Add other member details as needed -->
     </div>
     <div class="button-container">

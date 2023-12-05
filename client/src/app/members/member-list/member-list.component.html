@@ -5,7 +5,7 @@
 >
   <img
     mat-card-image
-    [src]="member.photoUrl"
+    [src]="member.photoUrl || './assets/placeholder.png'"
     alt="{{ member.knownAs }}'s photo"
     style="
       width: 100%;
@@ -16,8 +16,8 @@
     "
   />
   <mat-card-content>
-    <h2>{{ member.knownAs }}</h2>
-    <p>{{ member.introduction }}</p>
+    <h2>{{ member.knownAs || "No Name" }}</h2>
+    <p>{{ member.introduction || "No Introduction" }}</p>
     <div class="button-container">
       <!-- Profile Button -->
       <button mat-icon-button [routerLink]="'/members/' + member.username">
