@@ -1,11 +1,16 @@
 /* member-detail.component.css */
-.member-detail-container {
+.container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
+}
+
+.member-detail-container {
+  flex: 1;
+  margin: 20px;
   padding: 20px;
-  background-color: #f8f8f8;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #fff;
+  position: relative; /* Added for positioning of icons */
 }
 
 .header-container {
@@ -40,13 +45,47 @@ h2 {
   margin-top: 20px;
   display: flex;
   gap: 10px;
+  justify-content: center; /* Center the icons */
 }
 
-.loading-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  font-size: 18px;
-  color: #555;
+.button-container button {
+  background-color: #e0e0e0;
+  border-radius: 50%;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.button-container button:hover {
+  background-color: #c0c0c0;
+}
+
+.tab-container {
+  flex: 1;
+  margin: 20px;
+}
+
+mat-tab-group {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
+
+mat-tab {
+  min-width: 0;
+  padding: 10px 20px;
+  background-color: #e0e0e0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  color: #333;
+  font-weight: bold;
+}
+
+mat-tab-group.mat-primary .mat-ink-bar,
+mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: #1976d2;
+}
+
+.tab-content {
+  padding: 20px;
+  font-size: 16px;
+  line-height: 1.6;
 }

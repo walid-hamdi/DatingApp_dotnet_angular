@@ -1,22 +1,59 @@
-<!-- member-detail.component.html -->
-@if (member) {
-<h2>{{ member.knownAs }}</h2>
-<img [src]="member.photoUrl" alt="{{ member.knownAs }}'s photo" />
-<p>Age: {{ member.age }}</p>
-<p>Last Active: {{ member.lastActive | date }}</p>
-<p>Member Since: {{ member.created | date }}</p>
-<p>Location: {{ member.city }}, {{ member.country }}</p>
-<!-- Add other member details as needed -->
-<div class="button-container">
-  <!-- Heart (Like) Button -->
-  <button mat-icon-button>
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <!-- Message Button -->
-  <button mat-icon-button>
-    <mat-icon>message</mat-icon>
-  </button>
+<div class="container">
+  @if (member) {
+  <div class="member-detail-container" *ngIf="member">
+    <div class="header-container">
+      <img [src]="member.photoUrl" alt="{{ member.knownAs }}'s photo" />
+      <h2>{{ member.knownAs }}</h2>
+    </div>
+    <div class="info-container">
+      <p class="detail-item">Age: {{ member.age }}</p>
+      <p class="detail-item">Last Active: {{ member.lastActive | date }}</p>
+      <p class="detail-item">Member Since: {{ member.created | date }}</p>
+      <p class="detail-item">
+        Location: {{ member.city }}, {{ member.country }}
+      </p>
+      <!-- Add other member details as needed -->
+    </div>
+    <div class="button-container">
+      <!-- Heart (Like) Button -->
+      <button mat-icon-button color="primary">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <!-- Message Button -->
+      <button mat-icon-button color="primary">
+        <mat-icon>message</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="tab-container">
+    <mat-tab-group>
+      <mat-tab label="About">
+        <div class="tab-content">
+          <p>This is the About tab content for {{ member.knownAs }}.</p>
+          <!-- Add more content as needed -->
+        </div>
+      </mat-tab>
+      <mat-tab label="Interests">
+        <div class="tab-content">
+          <p>This is the Interests tab content for {{ member.knownAs }}.</p>
+          <!-- Add more content as needed -->
+        </div>
+      </mat-tab>
+      <mat-tab label="Photos">
+        <div class="tab-content">
+          <p>This is the Photos tab content for {{ member.knownAs }}.</p>
+          <!-- Add more content as needed -->
+        </div>
+      </mat-tab>
+      <mat-tab label="Messages">
+        <div class="tab-content">
+          <p>This is the Messages tab content for {{ member.knownAs }}.</p>
+          <!-- Add more content as needed -->
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  }@else{
+  <p>Loading...</p>
+  }
 </div>
-}@else{
-<p>Loading...</p>
-}
