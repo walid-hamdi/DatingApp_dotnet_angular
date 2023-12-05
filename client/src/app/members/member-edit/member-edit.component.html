@@ -1,0 +1,56 @@
+<div class="container">
+  @if (member) {
+  <div class="member-detail-container">
+    <div class="header-container">
+      <img
+        [src]="member.photoUrl || './assets/placeholder.png'"
+        alt="{{ member.knownAs || 'Placeholder' }}'s photo"
+      />
+      <h2>
+        <input [(ngModel)]="member.knownAs" placeholder="Member Name" />
+      </h2>
+    </div>
+    <div class="info-container">
+      <p class="detail-item">
+        Age: <input [(ngModel)]="member.age" type="number" />
+      </p>
+      <p class="detail-item">
+        Last Active: <input [(ngModel)]="member.lastActive" type="date" />
+      </p>
+      <p class="detail-item">
+        Member Since: <input [(ngModel)]="member.created" type="date" />
+      </p>
+      <p *ngIf="member.city && member.country" class="detail-item">
+        Location: <input [(ngModel)]="member.city" />,
+        <input [(ngModel)]="member.country" />
+      </p>
+    </div>
+    <div class="button-container">
+      <!-- Heart (Like) Button -->
+      <button mat-icon-button color="primary">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <!-- Message Button -->
+      <button mat-icon-button color="primary">
+        <mat-icon>message</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="tab-container">
+    <mat-tab-group>
+      <mat-tab label="About">
+        <div class="tab-content">
+          <p>
+            This is the About tab content for
+            <input [(ngModel)]="member!.knownAs" placeholder="Member Name" />
+          </p>
+        </div>
+      </mat-tab>
+      <!-- Repeat the same pattern for other tabs -->
+    </mat-tab-group>
+  </div>
+
+  }@else{
+  <p>Loading...</p>
+  }
+</div>
