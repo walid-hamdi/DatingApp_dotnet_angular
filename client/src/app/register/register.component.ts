@@ -34,7 +34,6 @@ export class RegisterComponent {
   register() {
     this.accountService.register(this.model).subscribe(
       (response) => {
-        console.log(response);
         this.onCancel.emit(false);
       },
       ({ error }) => {

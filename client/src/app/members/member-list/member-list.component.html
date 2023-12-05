@@ -20,7 +20,7 @@
     <p>{{ member.introduction }}</p>
     <div class="button-container">
       <!-- Profile Button -->
-      <button mat-icon-button>
+      <button mat-icon-button [routerLink]="'/members/' + member.username">
         <mat-icon>account_circle</mat-icon>
       </button>
       <!-- Heart (Like) Button -->
