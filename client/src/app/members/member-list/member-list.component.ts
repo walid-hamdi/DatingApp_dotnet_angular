@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { MembersService } from '../../members.service';
 import { Member } from '../../model/member';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-member-list',
   standalone: true,
-  imports: [CommonModule, MatCardModule],
+  imports: [CommonModule, MatCardModule, MatIconModule, MatButtonModule],
   templateUrl: './member-list.component.html',
   styleUrl: './member-list.component.css',
 })

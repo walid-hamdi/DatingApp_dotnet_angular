@@ -1,14 +1,37 @@
 @for (member of members; track $index) {
-<mat-card style="display: inline-block; width: 300px; margin: 10px">
+<mat-card
+  class="member-card"
+  style="display: inline-block; width: 300px; margin: 10px"
+>
   <img
     mat-card-image
     [src]="member.photoUrl"
-    alt="{{ member.username }}'s photo"
-    style="width: 100%; height: 200px; object-fit: cover"
+    alt="{{ member.knownAs }}'s photo"
+    style="
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    "
   />
   <mat-card-content>
-    <h2>{{ member.username }}</h2>
+    <h2>{{ member.knownAs }}</h2>
     <p>{{ member.introduction }}</p>
+    <div class="button-container">
+      <!-- Profile Button -->
+      <button mat-icon-button>
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <!-- Heart (Like) Button -->
+      <button mat-icon-button>
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <!-- Message Button -->
+      <button mat-icon-button>
+        <mat-icon>message</mat-icon>
+      </button>
+    </div>
   </mat-card-content>
 </mat-card>
 }@empty {
