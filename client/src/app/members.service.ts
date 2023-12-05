@@ -11,28 +11,11 @@ import { Member } from './model/member';
 export class MembersService {
   baseUrl = environment.apiUrl;
   http = inject(HttpClient);
-  httpOptions: any = null;
-
-  constructor() {
-    const user: User | null = JSON.parse(localStorage.getItem(USER_KEY) || '');
-    if (user) {
-      const token = user.token;
-
-      this.httpOptions = {
-        headers: new HttpHeaders({
-          Authorization: `Bearer ${token}`,
-        }),
-      };
-    }
-  }
 
   getMembers() {
-    return this.http.get<Member[]>(`${this.baseUrl}/users`, this.httpOptions);
+    return this.http.get<Member[]>(`${this.baseUrl}/users`);
   }
   getMember(username: string) {
-    return this.http.get<Member>(
-      `${this.baseUrl}/users/${username}`,
-      this.httpOptions
-    );
+    return this.http.get<Member>(`${this.baseUrl}/users/${username}`);
   }
 }
