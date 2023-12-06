@@ -26,26 +26,19 @@ import { ErrorComponent } from './error/error.component';
 })
 export class AppComponent implements OnInit {
   baseUrl = 'https://localhost:5001/api';
-  users: UserProfile[] = [];
 
   http = inject(HttpClient);
   accountService = inject(AccountService);
 
   ngOnInit(): void {
-    // const user: User | null = JSON.parse(localStorage.getItem(USER_KEY)!);
-    // this.accountService.setCurrentUser(user);
-    // this.getUsers();
-  }
-
-  getUsers() {
-    return this.http
-      .get<UserProfile[]>(`${this.baseUrl}/users`)
-      .subscribe((users) => {
-        this.users = users;
-      });
+    const user: User | null = JSON.parse(localStorage.getItem(USER_KEY)!);
+    this.accountService.setCurrentUser(user);
   }
 
   // Add guards
   // Add Theme
   // Add Shared Module
+
+  // TODO: add gallery photos (use detailed page)
+  // CanDeactivate : for prevent exit before you apply the changes
 }

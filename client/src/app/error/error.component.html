@@ -4,11 +4,16 @@
   <button (click)="get401Error()">401 error</button>
   <button (click)="get400ValidationError()">400 validation error</button>
 
-  <div *ngIf="errors.length > 0">
+  @if (errors.length>0) {
+  <div>
     <ul>
-      <li *ngFor="let error of errors">
+      @for (error of errors; track $index) {
+      <li>
         {{ error }}
       </li>
+      }
     </ul>
   </div>
+
+  }
 </div>

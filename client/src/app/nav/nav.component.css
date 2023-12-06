@@ -5,6 +5,8 @@
 .login-section {
   display: flex;
   align-items: center;
+  justify-content: space-around;
+  margin-left: auto; /* Push the login section to the right */
 }
 
 .login-section mat-form-field {
@@ -13,7 +15,6 @@
 }
 
 .active {
-  /* Your styles for the active link go here */
   background-color: #007bff;
   color: #ffffff;
 }

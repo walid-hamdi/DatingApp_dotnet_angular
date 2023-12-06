@@ -1,46 +1,33 @@
 <mat-toolbar color="primary">
-  <span routerLink="/">
-    <!-- <img
-      src="path/to/your/dating-app-logo.png"
-      alt="Dating App Logo"
-      height="30"
-    /> -->
-    Dating App
-  </span>
+  <span routerLink="/"> Dating App </span>
   <span class="spacer"></span>
 
-  <ng-container *ngIf="accountService.currentUser$ | async">
-    <button mat-button routerLink="/members" routerLinkActive="active">
-      Matches
-    </button>
-    <button mat-button routerLink="/lists" routerLinkActive="active">
-      Lists
-    </button>
-    <button mat-button routerLink="/messages" routerLinkActive="active">
-      Messages
-    </button>
-  </ng-container>
-
-  <button mat-button routerLink="/error" routerLinkActive="active">
-    Errors
+  @if (accountService.currentUser$ | async) {
+  <button mat-button routerLink="/members" routerLinkActive="active">
+    Matches
   </button>
+  <button mat-button routerLink="/lists" routerLinkActive="active">
+    Lists
+  </button>
+  <button mat-button routerLink="/messages" routerLinkActive="active">
+    Messages
+  </button>
+  }
 
-  <ng-container *ngIf="accountService.currentUser$ | async">
-    <button mat-button [matMenuTriggerFor]="menu">
-      {{ (accountService.currentUser$ | async)?.username }}
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="logout()">Logout</button>
-      <button mat-menu-item routerLink="/member/edit">Edit Profile</button>
-    </mat-menu>
-  </ng-container>
+  <!-- <button mat-button routerLink="/error" routerLinkActive="active">
+    Errors
+  </button> -->
 
-  <form
-    class="login-section"
-    #loginForm="ngForm"
-    (submit)="login()"
-    *ngIf="!(accountService.currentUser$ | async)"
-  >
+  @if (accountService.currentUser$ | async) {
+  <button mat-button [matMenuTriggerFor]="menu">
+    {{ (accountService.currentUser$ | async)?.username }}
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/member/edit">Edit Profile</button>
+    <button mat-menu-item (click)="logout()">Logout</button>
+  </mat-menu>
+  } @if (!(accountService.currentUser$ | async)) {
+  <form class="login-section" #loginForm="ngForm" (submit)="login()">
     <mat-form-field>
       <input
         name="username"
@@ -61,4 +48,5 @@
     </mat-form-field>
     <button mat-button>Login</button>
   </form>
+  }
 </mat-toolbar>

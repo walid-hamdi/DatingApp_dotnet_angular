@@ -1,56 +1,106 @@
+@if (member) {
 <div class="container">
-  @if (member) {
-  <div class="member-detail-container">
-    <div class="header-container">
-      <img
-        [src]="member.photoUrl || './assets/placeholder.png'"
-        alt="{{ member.knownAs || 'Placeholder' }}'s photo"
-      />
-      <h2>
-        <input [(ngModel)]="member.knownAs" placeholder="Member Name" />
-      </h2>
-    </div>
-    <div class="info-container">
-      <p class="detail-item">
-        Age: <input [(ngModel)]="member.age" type="number" />
-      </p>
-      <p class="detail-item">
-        Last Active: <input [(ngModel)]="member.lastActive" type="date" />
-      </p>
-      <p class="detail-item">
-        Member Since: <input [(ngModel)]="member.created" type="date" />
-      </p>
-      <p *ngIf="member.city && member.country" class="detail-item">
-        Location: <input [(ngModel)]="member.city" />,
-        <input [(ngModel)]="member.country" />
-      </p>
-    </div>
-    <div class="button-container">
-      <!-- Heart (Like) Button -->
-      <button mat-icon-button color="primary">
-        <mat-icon>favorite</mat-icon>
-      </button>
-      <!-- Message Button -->
-      <button mat-icon-button color="primary">
-        <mat-icon>message</mat-icon>
-      </button>
-    </div>
+  <div class="left-side">
+    <form #memberForm="ngForm">
+      <div class="header-container">
+        <img
+          [src]="member.photoUrl || './assets/placeholder.png'"
+          alt="{{ member.knownAs || 'Placeholder' }}'s photo"
+        />
+        <div class="info-container">
+          @if (member.city && member.city) {
+          <p class="detail-item">
+            Location: {{ member.city }}, {{ member.country }}
+          </p>
+          } @if (member.age) {
+          <p class="detail-item">Age: {{ member.age }}</p>
+          } @if (member.lastActive) {
+          <p class="detail-item">Last Active: {{ member.lastActive | date }}</p>
+          } @if (member.created) {
+          <p class="detail-item">Member Since: {{ member.created | date }}</p>
+          }
+        </div>
+      </div>
+      <div class="button-container">
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          class="save-button"
+        >
+          <mat-icon>save</mat-icon> Save Changes
+        </button>
+      </div>
+    </form>
   </div>
-  <div class="tab-container">
+  <div class="right-side">
     <mat-tab-group>
       <mat-tab label="About">
-        <div class="tab-content">
-          <p>
-            This is the About tab content for
-            <input [(ngModel)]="member!.knownAs" placeholder="Member Name" />
-          </p>
-        </div>
+        <ng-template matTabContent>
+          <form #aboutForm="ngForm">
+            <div class="tab-content">
+              <mat-form-field>
+                <textarea
+                  matInput
+                  name="introduction"
+                  [(ngModel)]="member.introduction"
+                  placeholder="Description"
+                  required
+                ></textarea>
+              </mat-form-field>
+              <mat-form-field>
+                <textarea
+                  matInput
+                  name="lookingFor"
+                  [(ngModel)]="member!.lookingFor"
+                  placeholder="Looking For"
+                  required
+                ></textarea>
+              </mat-form-field>
+              <mat-form-field>
+                <textarea
+                  matInput
+                  name="interests"
+                  [(ngModel)]="member!.interests"
+                  placeholder="Interests"
+                  required
+                ></textarea>
+              </mat-form-field>
+              <div class="location-details">
+                <mat-form-field>
+                  <input
+                    matInput
+                    name="city"
+                    [(ngModel)]="member!.city"
+                    placeholder="City"
+                    required
+                  />
+                </mat-form-field>
+                <mat-form-field>
+                  <input
+                    matInput
+                    name="country"
+                    [(ngModel)]="member!.country"
+                    placeholder="Country"
+                    required
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+          </form>
+        </ng-template>
       </mat-tab>
-      <!-- Repeat the same pattern for other tabs -->
+      <mat-tab label="Edit Photos">
+        <ng-template matTabContent>
+          <div class="tab-content">
+            <p>Photo editing section goes here.</p>
+          </div>
+        </ng-template>
+      </mat-tab>
     </mat-tab-group>
   </div>
-
-  }@else{
-  <p>Loading...</p>
-  }
 </div>
+
+}@else{
+<p>Loading...</p>
+}

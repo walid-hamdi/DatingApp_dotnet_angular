@@ -8,11 +8,22 @@ import { MembersService } from '../../members.service';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-member-edit',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatIconModule, MatTabsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatIconModule,
+    MatTabsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+  ],
   templateUrl: './member-edit.component.html',
   styleUrl: './member-edit.component.css',
 })
