@@ -27,6 +27,8 @@
           color="primary"
           type="submit"
           class="save-button"
+          form="editForm"
+          [disabled]="!editForm?.dirty"
         >
           <mat-icon>save</mat-icon> Save Changes
         </button>
@@ -37,7 +39,13 @@
     <mat-tab-group>
       <mat-tab label="About">
         <ng-template matTabContent>
-          <form #aboutForm="ngForm">
+          <form #editForm="ngForm" id="editForm" (ngSubmit)="updateMember()">
+            @if (editForm!.dirty) {
+            <div class="alert alert-warning">
+              You have made changes. Any unsaved changes will be lost.
+            </div>
+            }
+
             <div class="tab-content">
               <mat-form-field>
                 <textarea

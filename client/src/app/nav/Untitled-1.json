@@ -1,0 +1,1910 @@
+
+
+getSearchComponents
+[
+    {
+        "SComponents": [
+            {
+                "Order": 1,
+                "Label": "Clear",
+                "Type": 3,
+                "Advanced": 0,
+                "PSearch": false,
+                "Tag": "",
+                "Require": false,
+                "FieldName": ""
+            },
+            {
+                "Order": 2,
+                "Label": "Company",
+                "Type": 2,
+                "Advanced": 0,
+                "PSearch": false,
+                "Tag": "88",
+                "Require": true,
+                "FieldName": "dfWerkNr"
+            },
+            {
+                "Order": 3,
+                "Label": "employeeNbr",
+                "Type": 0,
+                "Advanced": 0,
+                "PSearch": false,
+                "Tag": "PERSONAL_ID",
+                "Require": false,
+                "FieldName": "dfNummer"
+            },
+            {
+                "Order": 4,
+                "Label": "FirstName",
+                "Type": 0,
+                "Advanced": 0,
+                "PSearch": true,
+                "Tag": "VORNAME",
+                "Require": false,
+                "FieldName": "dfNachname"
+            },
+            {
+                "Order": 5,
+                "Label": "LastName",
+                "Type": 0,
+                "Advanced": 0,
+                "PSearch": true,
+                "Tag": "NACHNAME",
+                "Require": false,
+                "FieldName": "dfVorname"
+            },
+            {
+                "Order": 6,
+                "Label": "Place",
+                "Type": 0,
+                "Advanced": 1,
+                "PSearch": false,
+                "Tag": "PLZ_ID",
+                "Require": false,
+                "FieldName": "dfPlaceID"
+            },
+            {
+                "Order": 7,
+                "Label": "StartDate",
+                "Type": 1,
+                "Advanced": 0,
+                "PSearch": false,
+                "Tag": "STARTDATUM",
+                "Require": false,
+                "FieldName": "dfStartdatum"
+            },
+            {
+                "Order": 8,
+                "Label": "Job",
+                "Type": 2,
+                "Advanced": 1,
+                "PSearch": false,
+                "Tag": "13",
+                "Require": false,
+                "FieldName": "dfJob"
+            },
+            {
+                "Order": 9,
+                "Label": "Section",
+                "Type": 2,
+                "Advanced": 1,
+                "PSearch": false,
+                "Tag": "11",
+                "Require": false,
+                "FieldName": "sdSection"
+            },
+            {
+                "Order": 10,
+                "Label": "SocialNr",
+                "Type": 0,
+                "Advanced": 1,
+                "PSearch": false,
+                "Tag": "SOZIALNUMMER",
+                "Require": false,
+                "FieldName": "dfSocialNr"
+            },
+            {
+                "Order": 11,
+                "Label": "Released",
+                "Type": 4,
+                "Advanced": 0,
+                "PSearch": false,
+                "Tag": " ",
+                "Require": false,
+                "FieldName": "cbReleased"
+            },
+            {
+                "Order": 12,
+                "Label": "Search",
+                "Type": 3,
+                "Advanced": 0,
+                "PSearch": false,
+                "Tag": "",
+                "Require": false,
+                "FieldName": ""
+            }
+        ]
+    }
+]
+When Make Masks
+[
+    {
+        "RComponents": [
+            {
+                "NAM": "tblResult",
+                "L": 0,
+                "T": 0,
+                "AL": 5,
+                "TYPE": 3,
+                "HEADER": [
+                    {
+                        "CAP": "Nummer",
+                        "W": 54,
+                        "AL": 3
+                    },
+                    {
+                        "CAP": "Name",
+                        "W": 195,
+                        "AL": 3
+                    }
+                ]
+            }
+        ]
+    }
+]
+When Make Masks
+[
+    {
+        "Components": [
+            {
+                "NAM": "labNummer",
+                "L": 3,
+                "T": 3,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Nummer",
+                "W": "105"
+            },
+            {
+                "NAM": "dfNummer",
+                "L": 114,
+                "T": 3,
+                "AL": 0,
+                "TYPE": 1,
+                "W": 50
+            },
+            {
+                "NAM": "labEintritt",
+                "L": 170,
+                "T": 3,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Eintritt",
+                "W": 69
+            },
+            {
+                "NAM": "dtEintritt",
+                "L": 245,
+                "T": 3,
+                "AL": 0,
+                "TYPE": 5,
+                "W": 86
+            },
+            {
+                "NAM": "labAustritt",
+                "L": 334,
+                "T": 3,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Austritt",
+                "W": 69
+            },
+            {
+                "NAM": "labVertragStart",
+                "L": 339,
+                "T": 3,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Vertrag Start",
+                "W": "105"
+            },
+            {
+                "NAM": "dtAustritt",
+                "L": 409,
+                "T": 3,
+                "AL": 0,
+                "TYPE": 5,
+                "W": 84
+            },
+            {
+                "NAM": "dtVertragStart",
+                "L": 447,
+                "T": 3,
+                "AL": 0,
+                "TYPE": 5,
+                "W": 83
+            },
+            {
+                "NAM": "dfAustrittGrund",
+                "L": 498,
+                "T": 3,
+                "AL": 0,
+                "TYPE": 1,
+                "W": 34
+            },
+            {
+                "NAM": "labStartdatum",
+                "L": 538,
+                "T": 3,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Startdatum",
+                "W": 95
+            },
+            {
+                "NAM": "dtStartdatum",
+                "L": 649,
+                "T": 3,
+                "AL": 0,
+                "TYPE": 5,
+                "W": 83
+            },
+            {
+                "NAM": "labName",
+                "L": 3,
+                "T": 33,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Name",
+                "W": "105"
+            },
+            {
+                "NAM": "dfVorname",
+                "L": 114,
+                "T": 33,
+                "AL": 0,
+                "TYPE": 1,
+                "W": 274
+            },
+            {
+                "NAM": "btn_S_Vorname",
+                "L": 385,
+                "T": 33,
+                "AL": 0,
+                "TYPE": 2,
+                "W": 22
+            },
+            {
+                "NAM": "dfNachname",
+                "L": 427,
+                "T": 33,
+                "AL": 0,
+                "TYPE": 1,
+                "W": 282
+            },
+            {
+                "NAM": "btn_S_Nachname",
+                "L": 709,
+                "T": 33,
+                "AL": 0,
+                "TYPE": 2,
+                "W": 22
+            },
+            {
+                "NAM": "labAbt",
+                "L": 3,
+                "T": 63,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Abt",
+                "W": "105"
+            },
+            {
+                "NAM": "dfAbteilung",
+                "L": 114,
+                "T": 63,
+                "AL": 0,
+                "TYPE": 1,
+                "TAG": -2,
+                "W": 50
+            },
+            {
+                "NAM": "dfUAbt",
+                "L": 170,
+                "T": 63,
+                "AL": 0,
+                "TYPE": 1,
+                "TAG": -2,
+                "W": 30
+            },
+            {
+                "NAM": "dfAbteilungText",
+                "L": 206,
+                "T": 63,
+                "AL": 0,
+                "TYPE": 1,
+                "TAG": -2,
+                "W": 158
+            },
+            {
+                "NAM": "labTypAngestellter",
+                "L": 370,
+                "T": 63,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Typ Angestellter",
+                "W": "105"
+            },
+            {
+                "NAM": "dfTypAngestellter",
+                "L": 481,
+                "T": 63,
+                "AL": 0,
+                "TYPE": 1,
+                "TAG": -2,
+                "W": 30
+            },
+            {
+                "NAM": "dfTypAngestellterText",
+                "L": 521,
+                "T": 63,
+                "AL": 0,
+                "TYPE": 1,
+                "TAG": -2,
+                "W": 210
+            },
+            {
+                "NAM": "labTaetigkeit",
+                "L": 3,
+                "T": 93,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Taetigkeit",
+                "W": "105"
+            },
+            {
+                "NAM": "dfTaetigkeit",
+                "L": 114,
+                "T": 93,
+                "AL": 0,
+                "TYPE": 1,
+                "TAG": -2,
+                "W": 30
+            },
+            {
+                "NAM": "dfTaetigkeitFremd",
+                "L": 154,
+                "T": 93,
+                "AL": 0,
+                "TYPE": 1,
+                "TAG": -2,
+                "W": 30
+            },
+            {
+                "NAM": "dfTaetigkeitText",
+                "L": 194,
+                "T": 93,
+                "AL": 0,
+                "TYPE": 1,
+                "TAG": -2,
+                "W": 170
+            },
+            {
+                "NAM": "labZeitlohn",
+                "L": 370,
+                "T": 93,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Zeitlohn",
+                "W": "105"
+            },
+            {
+                "NAM": "dfZeitlohn",
+                "L": 481,
+                "T": 93,
+                "AL": 0,
+                "TYPE": 1,
+                "TAG": -2,
+                "W": 30
+            },
+            {
+                "NAM": "dfZeitlohnText",
+                "L": 521,
+                "T": 93,
+                "AL": 0,
+                "TYPE": 1,
+                "TAG": -2,
+                "W": 210
+            },
+            {
+                "NAM": "labDiv1",
+                "L": 3,
+                "T": 123,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Div1",
+                "W": 728,
+                "H": 4
+            },
+            {
+                "NAM": "labAdresse",
+                "L": 3,
+                "T": 133,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Adresse",
+                "W": "105"
+            },
+            {
+                "NAM": "dfAdresse",
+                "L": 114,
+                "T": 133,
+                "AL": 0,
+                "TYPE": 1,
+                "W": 595
+            },
+            {
+                "NAM": "btn_S_Adresse",
+                "L": 709,
+                "T": 133,
+                "AL": 0,
+                "TYPE": 2,
+                "W": 22
+            },
+            {
+                "NAM": "labPlz",
+                "L": 3,
+                "T": 163,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Plz",
+                "W": "105"
+            },
+            {
+                "NAM": "dfPlzGegendText",
+                "L": 114,
+                "T": 163,
+                "AL": 0,
+                "TYPE": 1,
+                "W": 50
+            },
+            {
+                "NAM": "dfPlzText",
+                "L": 169,
+                "T": 163,
+                "AL": 0,
+                "TYPE": 1,
+                "W": 157
+            },
+            {
+                "NAM": "dfPlzDelegationText",
+                "L": 331,
+                "T": 163,
+                "AL": 0,
+                "TYPE": 1,
+                "W": 190
+            },
+            {
+                "NAM": "dfPlzGovernorateText",
+                "L": 526,
+                "T": 163,
+                "AL": 0,
+                "TYPE": 1,
+                "W": 150
+            },
+            {
+                "NAM": "dfPlz",
+                "L": 681,
+                "T": 163,
+                "AL": 0,
+                "TYPE": 1,
+                "W": 50
+            },
+            {
+                "NAM": "labNational",
+                "L": 3,
+                "T": 193,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "National",
+                "W": "105"
+            },
+            {
+                "NAM": "luNational",
+                "L": 114,
+                "T": 193,
+                "AL": 0,
+                "TYPE": 7,
+                "TAG": 2,
+                "W": 469,
+                "W": 469,
+                "W1": 34,
+                "W2": 429
+            },
+            {
+                "NAM": "labPassbild",
+                "L": 610,
+                "T": 193,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Passbild",
+                "W": "105"
+            },
+            {
+                "NAM": "labGeburtstag",
+                "L": 3,
+                "T": 223,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Geburtstag",
+                "W": "105"
+            },
+            {
+                "NAM": "dtGeburtstag",
+                "L": 114,
+                "T": 223,
+                "AL": 0,
+                "TYPE": 5,
+                "W": 90
+            },
+            {
+                "NAM": "dfAdresse2",
+                "L": 209,
+                "T": 223,
+                "AL": 0,
+                "TYPE": 1,
+                "W": 374
+            },
+            {
+                "NAM": "imPassbild",
+                "L": 605,
+                "T": 223,
+                "AL": 0,
+                "TYPE": 9,
+                "W": 130,
+                "H": 144
+            },
+            {
+                "NAM": "labVertragsNr",
+                "L": 3,
+                "T": 253,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Vertrags Nr",
+                "W": "105"
+            },
+            {
+                "NAM": "dfVertragsNr",
+                "L": 114,
+                "T": 253,
+                "AL": 0,
+                "TYPE": 1,
+                "W": "34"
+            },
+            {
+                "NAM": "labAusweis",
+                "L": 3,
+                "T": 283,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Ausweis",
+                "W": "105"
+            },
+            {
+                "NAM": "dfAusweis",
+                "L": 114,
+                "T": 283,
+                "AL": 0,
+                "TYPE": 1,
+                "W": 229
+            },
+            {
+                "NAM": "btn_S_Ausweisnummer",
+                "L": 342,
+                "T": 283,
+                "AL": 0,
+                "TYPE": 2,
+                "W": 22
+            },
+            {
+                "NAM": "labAusweisAusstellung",
+                "L": 370,
+                "T": 283,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Ausweis Ausstellung",
+                "W": "105"
+            },
+            {
+                "NAM": "dtAusweis_Ab",
+                "L": 481,
+                "T": 283,
+                "AL": 0,
+                "TYPE": 5,
+                "W": 90
+            },
+            {
+                "NAM": "labGeschlecht",
+                "L": 3,
+                "T": 313,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Geschlecht",
+                "W": "105"
+            },
+            {
+                "NAM": "luGeschlecht",
+                "L": 114,
+                "T": 313,
+                "AL": 0,
+                "TYPE": 7,
+                "TAG": 4,
+                "W": 246,
+                "W": 246,
+                "W1": 30,
+                "W2": 210
+            },
+            {
+                "NAM": "labKittel",
+                "L": 370,
+                "T": 313,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Kittel",
+                "W": "105"
+            },
+            {
+                "NAM": "dfKittel",
+                "L": 481,
+                "T": 313,
+                "AL": 0,
+                "TYPE": 1,
+                "W": 46
+            },
+            {
+                "NAM": "labFamilie",
+                "L": 3,
+                "T": 343,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Familie",
+                "W": "105"
+            },
+            {
+                "NAM": "luFamilie",
+                "L": 114,
+                "T": 343,
+                "AL": 0,
+                "TYPE": 7,
+                "TAG": 5,
+                "W": 246,
+                "W": 246,
+                "W1": 30,
+                "W2": 210
+            },
+            {
+                "NAM": "labSchule",
+                "L": 3,
+                "T": 373,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Schule",
+                "W": "105"
+            },
+            {
+                "NAM": "luSchule",
+                "L": 114,
+                "T": 373,
+                "AL": 0,
+                "TYPE": 7,
+                "TAG": 3,
+                "W": 246,
+                "W": 246,
+                "W1": 30,
+                "W2": 210
+            },
+            {
+                "NAM": "labZugehoerigkeit",
+                "L": 370,
+                "T": 373,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Zugehoerigkeit",
+                "W": "105"
+            },
+            {
+                "NAM": "tblZugehoerigkeit",
+                "L": 481,
+                "T": 373,
+                "AL": 0,
+                "TYPE": 3,
+                "W": 247,
+                "H": 152,
+                "HEADER": [
+                    {
+                        "CAP": "Werk",
+                        "W": 45
+                    },
+                    {
+                        "CAP": "Nummer",
+                        "W": 55
+                    },
+                    {
+                        "CAP": "Startdatum",
+                        "W": 75
+                    },
+                    {
+                        "CAP": "Werk",
+                        "W": 70
+                    }
+                ]
+            },
+            {
+                "NAM": "labTelefon",
+                "L": 3,
+                "T": 403,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Telefon",
+                "W": "105"
+            },
+            {
+                "NAM": "dfTelefon",
+                "L": 114,
+                "T": 403,
+                "AL": 0,
+                "TYPE": 1,
+                "W": 250
+            },
+            {
+                "NAM": "labSozialnummer",
+                "L": 3,
+                "T": 434,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Sozialnummer",
+                "W": "105"
+            },
+            {
+                "NAM": "dfSozialnummer",
+                "L": 114,
+                "T": 434,
+                "AL": 0,
+                "TYPE": 1,
+                "W": 229
+            },
+            {
+                "NAM": "btn_S_Sozialnummer",
+                "L": 342,
+                "T": 434,
+                "AL": 0,
+                "TYPE": 2,
+                "W": 22
+            },
+            {
+                "NAM": "labMinuten",
+                "L": 3,
+                "T": 464,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Minuten",
+                "W": "105"
+            },
+            {
+                "NAM": "dfMinuten",
+                "L": 114,
+                "T": 464,
+                "AL": 0,
+                "TYPE": 1,
+                "W": 50
+            },
+            {
+                "NAM": "labBusroute",
+                "L": 3,
+                "T": 494,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Busroute",
+                "W": "105"
+            },
+            {
+                "NAM": "luBusroute",
+                "L": 114,
+                "T": 494,
+                "AL": 0,
+                "TYPE": 7,
+                "TAG": 7,
+                "W": 250,
+                "W": 250,
+                "W1": 50,
+                "W2": 194
+            },
+            {
+                "NAM": "labZeitraum",
+                "L": 3,
+                "T": 524,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Zeitraum",
+                "W": "105"
+            },
+            {
+                "NAM": "dfZeitraum",
+                "L": 114,
+                "T": 524,
+                "AL": 0,
+                "TYPE": 1,
+                "W": 250
+            }
+        ]
+    }
+]
+When Make Masks
+[
+    {
+        "Components": [
+            {
+                "NAM": "labBankname",
+                "L": 3,
+                "T": 3,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Bankname",
+                "W": 105
+            },
+            {
+                "NAM": "luBank",
+                "L": 114,
+                "T": 3,
+                "AL": 0,
+                "TYPE": 7,
+                "TAG": 8,
+                "W": 250,
+                "W": 250,
+                "W1": 34,
+                "W2": 210
+            },
+            {
+                "NAM": "labBank",
+                "L": 3,
+                "T": 33,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Bank",
+                "W": 105
+            },
+            {
+                "NAM": "dfKonto",
+                "L": 114,
+                "T": 33,
+                "AL": 0,
+                "TYPE": 1,
+                "W": 250
+            },
+            {
+                "NAM": "btn_s_Konto",
+                "L": 365,
+                "T": 33,
+                "AL": 0,
+                "TYPE": 2,
+                "W": 22
+            },
+            {
+                "NAM": "labVertrag",
+                "L": 3,
+                "T": 63,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Vertrag",
+                "W": 105
+            },
+            {
+                "NAM": "tblVertrag",
+                "L": 114,
+                "T": 63,
+                "AL": 0,
+                "TYPE": 3,
+                "W": 617,
+                "H": 150,
+                "HEADER": [
+                    {
+                        "CAP": "Startdatum",
+                        "W": 78
+                    },
+                    {
+                        "CAP": "Enddatum",
+                        "W": 78
+                    },
+                    {
+                        "CAP": "Vertrag|Kat.",
+                        "W": 45
+                    },
+                    {
+                        "CAP": "Vertrag|Bezeichnung",
+                        "W": 239
+                    },
+                    {
+                        "CAP": "Erfasser",
+                        "W": 152
+                    }
+                ]
+            },
+            {
+                "NAM": "labGehalt",
+                "L": 3,
+                "T": 219,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Gehalt",
+                "W": 105
+            },
+            {
+                "NAM": "tblGehalt",
+                "L": 114,
+                "T": 219,
+                "AL": 0,
+                "TYPE": 3,
+                "W": 617,
+                "H": 150,
+                "HEADER": [
+                    {
+                        "CAP": "Startdatum",
+                        "W": 70
+                    },
+                    {
+                        "CAP": "Gehalt|Kat.",
+                        "W": 32
+                    },
+                    {
+                        "CAP": "Gehalt|Bezeichnung",
+                        "W": 100
+                    },
+                    {
+                        "CAP": "Gehalt|Basis",
+                        "W": 100
+                    },
+                    {
+                        "CAP": "Gehalt|Zusatz 1",
+                        "W": 100
+                    },
+                    {
+                        "CAP": "Gehalt|Zusatz 2",
+                        "W": 100
+                    },
+                    {
+                        "CAP": "Gehalt|Total",
+                        "W": 100
+                    },
+                    {
+                        "CAP": "Gehalt|%",
+                        "W": 32
+                    },
+                    {
+                        "CAP": "Erfasser",
+                        "W": 170
+                    }
+                ]
+            },
+            {
+                "NAM": "labSteuernummer",
+                "L": 3,
+                "T": 375,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Steuernummer",
+                "W": "105"
+            },
+            {
+                "NAM": "labBetreuung",
+                "L": 370,
+                "T": 375,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Betreuung",
+                "W": 360
+            },
+            {
+                "NAM": "cbSteuernummer",
+                "L": 114,
+                "T": 377,
+                "AL": 0,
+                "TYPE": 4
+            },
+            {
+                "NAM": "labKLehrKz",
+                "L": 3,
+                "T": 405,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "K LehrKz",
+                "W": "105"
+            },
+            {
+                "NAM": "cbLehrKz",
+                "L": 114,
+                "T": 405,
+                "AL": 0,
+                "TYPE": 4
+            },
+            {
+                "NAM": "tblBetreuung",
+                "L": 370,
+                "T": 405,
+                "AL": 0,
+                "TYPE": 3,
+                "W": 360,
+                "H": 170,
+                "HEADER": [
+                    {
+                        "CAP": "Code",
+                        "W": 45
+                    },
+                    {
+                        "CAP": "Name",
+                        "W": 140
+                    },
+                    {
+                        "CAP": "Startdatum",
+                        "W": 78
+                    },
+                    {
+                        "CAP": "Enddatum",
+                        "W": 78
+                    }
+                ]
+            },
+            {
+                "NAM": "labFixBonus",
+                "L": 3,
+                "T": 435,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Fix Bonus",
+                "W": "105"
+            },
+            {
+                "NAM": "dfFixBonus",
+                "L": 115,
+                "T": 435,
+                "AL": 0,
+                "TYPE": 1,
+                "W": "34"
+            },
+            {
+                "NAM": "labAnzahlVerdiener",
+                "L": 3,
+                "T": 465,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Anzahl Verdiener",
+                "W": "105"
+            },
+            {
+                "NAM": "cbAnzahlVerdiener",
+                "L": 115,
+                "T": 465,
+                "AL": 0,
+                "TYPE": 4
+            },
+            {
+                "NAM": "labSteuerpflKind",
+                "L": 3,
+                "T": 495,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Steuerpfl Kind",
+                "W": "105"
+            },
+            {
+                "NAM": "cbSteuerabzugKind",
+                "L": 115,
+                "T": 495,
+                "AL": 0,
+                "TYPE": 4
+            },
+            {
+                "NAM": "labKinder",
+                "L": 3,
+                "T": 525,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Kinder",
+                "W": "105"
+            },
+            {
+                "NAM": "dfKinder",
+                "L": 115,
+                "T": 525,
+                "AL": 0,
+                "TYPE": 1,
+                "W": "34"
+            },
+            {
+                "NAM": "labGewerkschaft",
+                "L": 3,
+                "T": 555,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Gewerkschaft",
+                "W": "105"
+            },
+            {
+                "NAM": "cbGewerkschaft",
+                "L": 115,
+                "T": 557,
+                "AL": 0,
+                "TYPE": 4
+            }
+        ]
+    }
+]
+When Make Masks
+[
+    {
+        "Components": [
+            {
+                "NAM": "labUrlaubtyp",
+                "L": 3,
+                "T": 3,
+                "AL": 0,
+                "TYPE": 0,
+                "CAP": "Urlaubtyp",
+                "W": "105"
+            },
+            {
+                "NAM": "luUrlaubtyp",
+                "L": 114,
+                "T": 3,
+                "AL": 0,
+                "TYPE": 7,
+                "TAG": 33,
+                "W": 246,
+                "W": 246,
+                "W1": 30,
+                "W2": 210
+            },
+            {
+                "NAM": "tblUrlaubBezahlt",
+                "L": 3,
+                "T": 33,
+                "AL": 0,
+                "TYPE": 3,
+                "W": 730,
+                "H": 186,
+                "HEADER": [
+                    {
+                        "CAP": "Jahr",
+                        "W": 40
+                    },
+                    {
+                        "CAP": "Gesamt|Alt",
+                        "W": 40
+                    },
+                    {
+                        "CAP": "Gesamt|Neu",
+                        "W": 40
+                    },
+                    {
+                        "CAP": "Gesamt|Verbr.",
+                        "W": 40
+                    },
+                    {
+                        "CAP": "Gesamt|Rest",
+                        "W": 40
+                    },
+                    {
+                        "CAP": "Übersicht Monate|01",
+                        "W": 40
+                    },
+                    {
+                        "CAP": "Übersicht Monate|02",
+                        "W": 40
+                    },
+                    {
+                        "CAP": "Übersicht Monate|03",
+                        "W": 40
+                    },
+                    {
+                        "CAP": "Übersicht Monate|04",
+                        "W": 40
+                    },
+                    {
+                        "CAP": "Übersicht Monate|05",
+                        "W": 40
+                    },
+                    {
+                        "CAP": "Übersicht Monate|06",
+                        "W": 40
+                    },
+                    {
+                        "CAP": "Übersicht Monate|07",
+                        "W": 40
+                    },
+                    {
+                        "CAP": "Übersicht Monate|08",
+                        "W": 40
+                    },
+                    {
+                        "CAP": "Übersicht Monate|09",
+                        "W": 40
+                    },
+                    {
+                        "CAP": "Übersicht Monate|10",
+                        "W": 40
+                    },
+                    {
+                        "CAP": "Übersicht Monate|11",
+                        "W": 40
+                    },
+                    {
+                        "CAP": "Übersicht Monate|12",
+                        "W": 40
+                    }
+                ]
+            }
+        ]
+    }
+]
+When Make Masks
+[
+    {
+        "Components": [
+            {
+                "NAM": "tblAbmahnung",
+                "L": 0,
+                "T": 0,
+                "AL": 5,
+                "TYPE": 3,
+                "W": 719,
+                "H": 186,
+                "HEADER": [
+                    {
+                        "CAP": "Datum",
+                        "W": 76
+                    },
+                    {
+                        "CAP": "Tage",
+                        "W": 35
+                    },
+                    {
+                        "CAP": "Abmahnung|Typ",
+                        "W": 32
+                    },
+                    {
+                        "CAP": "Abmahnung|Grund",
+                        "W": 35
+                    },
+                    {
+                        "CAP": "Abmahnung|Text",
+                        "W": 193
+                    },
+                    {
+                        "CAP": "Abmahnung|Sonstiger Grund",
+                        "W": 324
+                    }
+                ]
+            }
+        ]
+    }
+]
+When Fill Masks
+[
+    {
+        "EmpMain": [
+            {
+                "dfNummer": 14001,
+                "luPlz": [
+                    {
+                        "ID": "4262"
+                    }
+                ],
+                "dfNachname": "Mourad Ben Rached",
+                "dfVorname": "Saied",
+                "dfAdresse": "56 Rue Kigali ",
+                "dfAdresse2": "Nabeul",
+                "address3": "",
+                "address4": "8000",
+                "luNational": [
+                    {
+                        "ID": "TN"
+                    }
+                ],
+                "dfVorwahl": "",
+                "dfTelefon": "29 974 027",
+                "dtGeburtstag": "27.05.1968",
+                "dfGeburtsPlz": "Nabeul",
+                "dfGeburtsPlzText": "Nabeul",
+                "dtStartdatum": "01.12.2006",
+                "dtEintritt": "01.07.2013",
+                "Released": false,
+                "luFamilie": [
+                    {
+                        "ID": "2"
+                    }
+                ],
+                "luSchule": [
+                    {
+                        "ID": "1"
+                    }
+                ],
+                "luGeschlecht": [
+                    {
+                        "ID": "M"
+                    }
+                ],
+                "dfAusweis": "05119168",
+                "dtAusweis_Ab": "12.03.1997",
+                "dfMinuten": 480,
+                "luBusroute": [
+                    {
+                        "ID": ""
+                    }
+                ],
+                "dfZeitraum": "17 Jahre 0 Monate",
+                "tblZugehoerigkeit": [
+                    {
+                        "Werk": "12",
+                        "Nummer": "14001",
+                        "Startdatum": "01.07.2013"
+                    },
+                    {
+                        "Werk": "23",
+                        "Nummer": "502",
+                        "Startdatum": "02.05.2007",
+                        "Enddatum": "01.07.2013"
+                    },
+                    {
+                        "Werk": "05",
+                        "Nummer": "9070",
+                        "Startdatum": "01.12.2006",
+                        "Enddatum": "30.04.2007"
+                    }
+                ],
+                "dfSozialnummer": "1209220209",
+                "dfPlzText": "Nabeul",
+                "dfPlzGegendText": "8000",
+                "dfPlzGovernorateText": "Nabeul",
+                "dfPlzDelegationText": "Nabeul",
+                "dtVertragStart": "01.07.2013",
+                "dfAbteilung": "OFFI",
+                "dfAbteilungText": "Büro",
+                "dfUAbt": 0,
+                "dfTaetigkeit": 11,
+                "dfTaetigkeitText": "Büro Angestellte",
+                "dfTaetigkeitFremd": 0,
+                "dfZeitlohn": 2,
+                "dfZeitlohnText": "Unproduktiv",
+                "dfTypAngestellter": "2",
+                "dfTypAngestellterText": "Unproduktiv",
+                "NbrOfEmp": 6
+            }
+        ]
+    }
+]
+pjoData
+[
+    {
+        "PersonendatenData": [
+            {
+                "EmpMain": [
+                    {
+                        "dfNummer": 14001,
+                        "luPlz": [
+                            {
+                                "ID": "4262"
+                            }
+                        ],
+                        "dfNachname": "Mourad Ben Rached",
+                        "dfVorname": "Saied",
+                        "dfAdresse": "56 Rue Kigali ",
+                        "dfAdresse2": "Nabeul",
+                        "address3": "",
+                        "address4": "8000",
+                        "luNational": [
+                            {
+                                "ID": "TN"
+                            }
+                        ],
+                        "dfVorwahl": "",
+                        "dfTelefon": "29 974 027",
+                        "dtGeburtstag": "27.05.1968",
+                        "dfGeburtsPlz": "Nabeul",
+                        "dfGeburtsPlzText": "Nabeul",
+                        "dtStartdatum": "01.12.2006",
+                        "dtEintritt": "01.07.2013",
+                        "Released": false,
+                        "luFamilie": [
+                            {
+                                "ID": "2"
+                            }
+                        ],
+                        "luSchule": [
+                            {
+                                "ID": "1"
+                            }
+                        ],
+                        "luGeschlecht": [
+                            {
+                                "ID": "M"
+                            }
+                        ],
+                        "dfAusweis": "05119168",
+                        "dtAusweis_Ab": "12.03.1997",
+                        "dfMinuten": 480,
+                        "luBusroute": [
+                            {
+                                "ID": ""
+                            }
+                        ],
+                        "dfZeitraum": "17 Jahre 0 Monate",
+                        "tblZugehoerigkeit": [
+                            {
+                                "Werk": "12",
+                                "Nummer": "14001",
+                                "Startdatum": "01.07.2013"
+                            },
+                            {
+                                "Werk": "23",
+                                "Nummer": "502",
+                                "Startdatum": "02.05.2007",
+                                "Enddatum": "01.07.2013"
+                            },
+                            {
+                                "Werk": "05",
+                                "Nummer": "9070",
+                                "Startdatum": "01.12.2006",
+                                "Enddatum": "30.04.2007"
+                            }
+                        ],
+                        "dfSozialnummer": "1209220209",
+                        "dfPlzText": "Nabeul",
+                        "dfPlzGegendText": "8000",
+                        "dfPlzGovernorateText": "Nabeul",
+                        "dfPlzDelegationText": "Nabeul",
+                        "dtVertragStart": "01.07.2013",
+                        "dfAbteilung": "OFFI",
+                        "dfAbteilungText": "Büro",
+                        "dfUAbt": 0,
+                        "dfTaetigkeit": 11,
+                        "dfTaetigkeitText": "Büro Angestellte",
+                        "dfTaetigkeitFremd": 0,
+                        "dfZeitlohn": 2,
+                        "dfZeitlohnText": "Unproduktiv",
+                        "dfTypAngestellter": "2",
+                        "dfTypAngestellterText": "Unproduktiv",
+                        "NbrOfEmp": 6
+                    }
+                ]
+            }
+        ]
+    }
+]
+Value of grid
+[
+    {
+        "Startdatum": "01.01.2018",
+        "Gehalt|Kat.": "0",
+        "Gehalt|Bezeichnung": "Fester Lohn",
+        "Gehalt|Basis": "1.686",
+        "Gehalt|Zusatz 1": "0.011",
+        "Gehalt|Zusatz 2": "0",
+        "Gehalt|%": 100,
+        "Erfasser": "m.boukhit - ins_uge",
+        "Gehalt|Total": "1.697"
+    }
+]
+Value of grid
+[
+    {
+        "Startdatum": "01.01.2018",
+        "Gehalt|Kat.": "0",
+        "Gehalt|Bezeichnung": "Fester Lohn",
+        "Gehalt|Basis": "1.686",
+        "Gehalt|Zusatz 1": "0.011",
+        "Gehalt|Zusatz 2": "0",
+        "Gehalt|%": 100,
+        "Erfasser": "m.boukhit - ins_uge",
+        "Gehalt|Total": "1.697"
+    }
+]
+Value of grid
+[
+    {
+        "Startdatum": "01.01.2018",
+        "Gehalt|Kat.": "0",
+        "Gehalt|Bezeichnung": "Fester Lohn",
+        "Gehalt|Basis": "1.686",
+        "Gehalt|Zusatz 1": "0.011",
+        "Gehalt|Zusatz 2": "0",
+        "Gehalt|%": 100,
+        "Erfasser": "m.boukhit - ins_uge",
+        "Gehalt|Total": "1.697"
+    }
+]
+Value of grid
+[
+    {
+        "Startdatum": "01.01.2018",
+        "Gehalt|Kat.": "0",
+        "Gehalt|Bezeichnung": "Fester Lohn",
+        "Gehalt|Basis": "1.686",
+        "Gehalt|Zusatz 1": "0.011",
+        "Gehalt|Zusatz 2": "0",
+        "Gehalt|%": 100,
+        "Erfasser": "m.boukhit - ins_uge",
+        "Gehalt|Total": "1.697"
+    }
+]
+Value of grid
+[
+    {
+        "Startdatum": "01.01.2018",
+        "Gehalt|Kat.": "0",
+        "Gehalt|Bezeichnung": "Fester Lohn",
+        "Gehalt|Basis": "1.686",
+        "Gehalt|Zusatz 1": "0.011",
+        "Gehalt|Zusatz 2": "0",
+        "Gehalt|%": 100,
+        "Erfasser": "m.boukhit - ins_uge",
+        "Gehalt|Total": "1.697"
+    }
+]
+Value of grid
+[
+    {
+        "Startdatum": "01.01.2018",
+        "Gehalt|Kat.": "0",
+        "Gehalt|Bezeichnung": "Fester Lohn",
+        "Gehalt|Basis": "1.686",
+        "Gehalt|Zusatz 1": "0.011",
+        "Gehalt|Zusatz 2": "0",
+        "Gehalt|%": 100,
+        "Erfasser": "m.boukhit - ins_uge",
+        "Gehalt|Total": "1.697"
+    }
+]
+Value of grid
+[
+    {
+        "Startdatum": "01.01.2018",
+        "Gehalt|Kat.": "0",
+        "Gehalt|Bezeichnung": "Fester Lohn",
+        "Gehalt|Basis": "1.686",
+        "Gehalt|Zusatz 1": "0.011",
+        "Gehalt|Zusatz 2": "0",
+        "Gehalt|%": 100,
+        "Erfasser": "m.boukhit - ins_uge",
+        "Gehalt|Total": "1.697"
+    }
+]
+Value of grid
+[
+    {
+        "Startdatum": "01.05.2017",
+        "Gehalt|Kat.": "0",
+        "Gehalt|Bezeichnung": "Fester Lohn",
+        "Gehalt|Basis": "1.591",
+        "Gehalt|Zusatz 1": "0.010",
+        "Gehalt|Zusatz 2": "0",
+        "Gehalt|%": 100,
+        "Erfasser": "u.beyer - ins_uge",
+        "Gehalt|Total": "1.601"
+    }
+]
+Value of grid
+[
+    {
+        "Startdatum": "01.05.2017",
+        "Gehalt|Kat.": "0",
+        "Gehalt|Bezeichnung": "Fester Lohn",
+        "Gehalt|Basis": "1.591",
+        "Gehalt|Zusatz 1": "0.010",
+        "Gehalt|Zusatz 2": "0",
+        "Gehalt|%": 100,
+        "Erfasser": "u.beyer - ins_uge",
+        "Gehalt|Total": "1.601"
+    }
+]
+Value of grid
+[
+    {
+        "Startdatum": "01.05.2017",
+        "Gehalt|Kat.": "0",
+        "Gehalt|Bezeichnung": "Fester Lohn",
+        "Gehalt|Basis": "1.591",
+        "Gehalt|Zusatz 1": "0.010",
+        "Gehalt|Zusatz 2": "0",
+        "Gehalt|%": 100,
+        "Erfasser": "u.beyer - ins_uge",
+        "Gehalt|Total": "1.601"
+    }
+]
+Value of grid
+[
+    {
+        "Startdatum": "01.05.2017",
+        "Gehalt|Kat.": "0",
+        "Gehalt|Bezeichnung": "Fester Lohn",
+        "Gehalt|Basis": "1.591",
+        "Gehalt|Zusatz 1": "0.010",
+        "Gehalt|Zusatz 2": "0",
+        "Gehalt|%": 100,
+        "Erfasser": "u.beyer - ins_uge",
+        "Gehalt|Total": "1.601"
+    }
+]
+Value of grid
+[
+    {
+        "Startdatum": "01.05.2017",
+        "Gehalt|Kat.": "0",
+        "Gehalt|Bezeichnung": "Fester Lohn",
+        "Gehalt|Basis": "1.591",
+        "Gehalt|Zusatz 1": "0.010",
+        "Gehalt|Zusatz 2": "0",
+        "Gehalt|%": 100,
+        "Erfasser": "u.beyer - ins_uge",
+        "Gehalt|Total": "1.601"
+    }
+]
+Value of grid
+[
+    {
+        "Startdatum": "01.05.2017",
+        "Gehalt|Kat.": "0",
+        "Gehalt|Bezeichnung": "Fester Lohn",
+        "Gehalt|Basis": "1.591",
+        "Gehalt|Zusatz 1": "0.010",
+        "Gehalt|Zusatz 2": "0",
+        "Gehalt|%": 100,
+        "Erfasser": "u.beyer - ins_uge",
+        "Gehalt|Total": "1.601"
+    }
+]
+Value of grid
+[
+    {
+        "Startdatum": "01.05.2017",
+        "Gehalt|Kat.": "0",
+        "Gehalt|Bezeichnung": "Fester Lohn",
+        "Gehalt|Basis": "1.591",
+        "Gehalt|Zusatz 1": "0.010",
+        "Gehalt|Zusatz 2": "0",
+        "Gehalt|%": 100,
+        "Erfasser": "u.beyer - ins_uge",
+        "Gehalt|Total": "1.601"
+    }
+]
+Value of grid
+[
+    {
+        "Startdatum": "01.04.2016",
+        "Gehalt|Kat.": "0",
+        "Gehalt|Bezeichnung": "Fester Lohn",
+        "Gehalt|Basis": "1.501",
+        "Gehalt|Zusatz 1": "0.009",
+        "Gehalt|Zusatz 2": "0",
+        "Gehalt|%": 100,
+        "Erfasser": "m.boukhit - ins_uge",
+        "Gehalt|Total": "1.510"
+    }
+]
+Value of grid
+[
+    {
+        "Startdatum": "01.04.2016",
+        "Gehalt|Kat.": "0",
+        "Gehalt|Bezeichnung": "Fester Lohn",
+        "Gehalt|Basis": "1.501",
+        "Gehalt|Zusatz 1": "0.009",
+        "Gehalt|Zusatz 2": "0",
+        "Gehalt|%": 100,
+        "Erfasser": "m.boukhit - ins_uge",
+        "Gehalt|Total": "1.510"
+    }
+]
+Value of grid
+[
+    {
+        "Startdatum": "01.04.2016",
+        "Gehalt|Kat.": "0",
+        "Gehalt|Bezeichnung": "Fester Lohn",
+        "Gehalt|Basis": "1.501",
+        "Gehalt|Zusatz 1": "0.009",
+        "Gehalt|Zusatz 2": "0",
+        "Gehalt|%": 100,
+        "Erfasser": "m.boukhit - ins_uge",
+        "Gehalt|Total": "1.510"
+    }
+]
+Value of grid
+[
+    {
+        "Startdatum": "01.04.2016",
+        "Gehalt|Kat.": "0",
+        "Gehalt|Bezeichnung": "Fester Lohn",
+        "Gehalt|Basis": "1.501",
+        "Gehalt|Zusatz 1": "0.009",
+        "Gehalt|Zusatz 2": "0",
+        "Gehalt|%": 100,
+        "Erfasser": "m.boukhit - ins_uge",
+        "Gehalt|Total": "1.510"
+    }
+]
+Value of grid
+[
+    {
+        "Startdatum": "01.04.2016",
+        "Gehalt|Kat.": "0",
+        "Gehalt|Bezeichnung": "Fester Lohn",
+        "Gehalt|Basis": "1.501",
+        "Gehalt|Zusatz 1": "0.009",
+        "Gehalt|Zusatz 2": "0",
+        "Gehalt|%": 100,
+        "Erfasser": "m.boukhit - ins_uge",
+        "Gehalt|Total": "1.510"
+    }
+]
+Value of grid
+[
+    {
+        "Startdatum": "01.04.2016",
+        "Gehalt|Kat.": "0",
+        "Gehalt|Bezeichnung": "Fester Lohn",
+        "Gehalt|Basis": "1.501",
+        "Gehalt|Zusatz 1": "0.009",
+        "Gehalt|Zusatz 2": "0",
+        "Gehalt|%": 100,
+        "Erfasser": "m.boukhit - ins_uge",
+        "Gehalt|Total": "1.510"
+    }
+]
+Value of grid
+[
+    {
+        "Startdatum": "01.04.2016",
+        "Gehalt|Kat.": "0",
+        "Gehalt|Bezeichnung": "Fester Lohn",
+        "Gehalt|Basis": "1.501",
+        "Gehalt|Zusatz 1": "0.009",
+        "Gehalt|Zusatz 2": "0",
+        "Gehalt|%": 100,
+        "Erfasser": "m.boukhit - ins_uge",
+        "Gehalt|Total": "1.510"
+    }
+]
+Value of grid
+[
+    {
+        "contCompany": "12",
+        "contEmp": 14001,
+        "Vertrag|Kat.": "50",
+        "Vertrag|Bezeichnung": "Permanter Vertrag",
+        "Startdatum": "01.07.2013",
+        "Erfasser": "h.ben hadj",
+        "Erfasst_am": "20.05.2011"
+    }
+]
+Value of grid
+[
+    {
+        "contCompany": "12",
+        "contEmp": 14001,
+        "Vertrag|Kat.": "50",
+        "Vertrag|Bezeichnung": "Permanter Vertrag",
+        "Startdatum": "01.07.2013",
+        "Erfasser": "h.ben hadj",
+        "Erfasst_am": "20.05.2011"
+    }
+]
+When Fill Masks
+[
+    {
+        "tblBetreuung": [
+            {
+                "Code": "EN20",
+                "Name": "Saied  Lina",
+                "Startdatum": "28.04.2005",
+                "Enddatum": "27.04.2025"
+            },
+            {
+                "Code": "EN20",
+                "Name": "Saied Rima",
+                "Startdatum": "18.02.2008",
+                "Enddatum": "17.02.2028"
+            }
+        ]
+    }
+]
+pjoData
+[
+    {
+        "LohndatenData": [
+            {
+                "dfNummer": 14001,
+                "luBank": [
+                    {
+                        "ID": "1"
+                    }
+                ],
+                "dfKonto": "08208000052001570133",
+                "dfKinder": 2,
+                "cbAnzahlVerdiener": true,
+                "dfFixBonus": 0,
+                "cbSteuerabzugKind": true,
+                "cbLehrKz": false,
+                "cbGewerkschaft": false,
+                "cbAnzahlVerdiener": true,
+                "dfKinder": 2,
+                "cbGewerkschaft": false
+            },
+            {
+                "tblGehalt": [
+                    {
+                        "Startdatum": "01.01.2018",
+                        "Gehalt|Kat.": "0",
+                        "Gehalt|Bezeichnung": "Fester Lohn",
+                        "Gehalt|Basis": "1.686",
+                        "Gehalt|Zusatz 1": "0.011",
+                        "Gehalt|Zusatz 2": "0",
+                        "Gehalt|%": 100,
+                        "Erfasser": "m.boukhit - ins_uge",
+                        "Gehalt|Total": "1.697"
+                    },
+                    {
+                        "Startdatum": "01.05.2017",
+                        "Gehalt|Kat.": "0",
+                        "Gehalt|Bezeichnung": "Fester Lohn",
+                        "Gehalt|Basis": "1.591",
+                        "Gehalt|Zusatz 1": "0.010",
+                        "Gehalt|Zusatz 2": "0",
+                        "Gehalt|%": 100,
+                        "Erfasser": "u.beyer - ins_uge",
+                        "Gehalt|Total": "1.601"
+                    },
+                    {
+                        "Startdatum": "01.04.2016",
+                        "Gehalt|Kat.": "0",
+                        "Gehalt|Bezeichnung": "Fester Lohn",
+                        "Gehalt|Basis": "1.501",
+                        "Gehalt|Zusatz 1": "0.009",
+                        "Gehalt|Zusatz 2": "0",
+                        "Gehalt|%": 100,
+                        "Erfasser": "m.boukhit - ins_uge",
+                        "Gehalt|Total": "1.510"
+                    }
+                ]
+            },
+            {
+                "tblVertrag": [
+                    {
+                        "contCompany": "12",
+                        "contEmp": 14001,
+                        "Vertrag|Kat.": "50",
+                        "Vertrag|Bezeichnung": "Permanter Vertrag",
+                        "Startdatum": "01.07.2013",
+                        "Erfasser": "h.ben hadj",
+                        "Erfasst_am": "20.05.2011"
+                    }
+                ]
+            },
+            {
+                "tblBetreuung": [
+                    {
+                        "Code": "EN20",
+                        "Name": "Saied  Lina",
+                        "Startdatum": "28.04.2005",
+                        "Enddatum": "27.04.2025"
+                    },
+                    {
+                        "Code": "EN20",
+                        "Name": "Saied Rima",
+                        "Startdatum": "18.02.2008",
+                        "Enddatum": "17.02.2028"
+                    }
+                ]
+            }
+        ]
+    }
+]lj

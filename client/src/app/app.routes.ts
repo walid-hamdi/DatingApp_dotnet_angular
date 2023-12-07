@@ -9,6 +9,7 @@ import { ErrorComponent } from './error/error.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ErrorServerComponent } from './error-server/error-server.component';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { preventUnsavedChangesGuard } from './guards/prevent-unsaved-changes.guard';
 
 export const routes: Routes = [
   {
@@ -28,7 +29,11 @@ export const routes: Routes = [
         path: 'members/:username',
         component: MemberDetailComponent,
       },
-      { path: 'member/edit', component: MemberEditComponent },
+      {
+        path: 'member/edit',
+        component: MemberEditComponent,
+        canDeactivate: [preventUnsavedChangesGuard],
+      },
       {
         path: 'lists',
         component: ListsComponent,

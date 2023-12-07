@@ -1,16 +1,23 @@
-import { Component, OnInit, inject } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  OnInit,
+  ViewChild,
+  inject,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Member } from '../../model/member';
 import { User } from '../../model/user';
 import { AccountService } from '../../account.service';
 import { take } from 'rxjs';
 import { MembersService } from '../../members.service';
-import { FormsModule } from '@angular/forms';
+import { Form, FormsModule, NgForm } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-member-edit',
@@ -30,8 +37,27 @@ import { MatButtonModule } from '@angular/material/button';
 export class MemberEditComponent implements OnInit {
   member?: Member;
   user?: User;
-  accountUser = inject(AccountService);
-  memberService = inject(MembersService);
+  @ViewChild('editForm') public editForm?: NgForm;
+  // @HostListener('window.beforeunload', ['$event']) unloadNotification(
+  //   $event: any
+  // ) {
+  //   if (this.editForm?.dirty) {
+  //     $event.returnValue = true;
+  //   }
+  // }
+
+  private accountUser = inject(AccountService);
+  private memberService = inject(MembersService);
+  private snackBar = inject(MatSnackBar);
+
+  openErrorToast = (message: string) => {
+    this.snackBar.open(message, 'Close', {
+      duration: 5000,
+      verticalPosition: 'top',
+      horizontalPosition: 'center',
+      panelClass: ['error-toast'],
+    });
+  };
 
   constructor() {
     this.accountUser.currentUser$.pipe(take(1)).subscribe((user: any) => {
@@ -47,5 +73,11 @@ export class MemberEditComponent implements OnInit {
     this.memberService.getMember(this.user?.username!).subscribe((member) => {
       this.member = member;
     });
+  }
+
+  updateMember() {
+    console.log(this.member);
+    this.openErrorToast('Profile Updated successfully.');
+    this.editForm?.reset(this.member);
   }
 }

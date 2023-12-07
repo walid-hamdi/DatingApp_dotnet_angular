@@ -49,14 +49,14 @@ h2 {
 }
 
 .button-container button {
-  background-color: #e0e0e0;
-  border-radius: 50%;
+  background-color: #91c559;
+  /* border-radius: 50%; */
   padding: 10px;
   transition: background-color 0.3s ease;
 }
 
 .button-container button:hover {
-  background-color: #c0c0c0;
+  background-color: #96d156;
 }
 
 .tab-container {
