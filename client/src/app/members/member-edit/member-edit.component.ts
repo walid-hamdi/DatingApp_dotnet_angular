@@ -8,7 +8,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { Member } from '../../model/member';
 import { User } from '../../model/user';
-import { AccountService } from '../../account.service';
+import { AccountService } from '../../services/account.service';
 import { take } from 'rxjs';
 import { MembersService } from '../../members.service';
 import { Form, FormsModule, NgForm } from '@angular/forms';

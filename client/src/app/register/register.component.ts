@@ -7,7 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AccountService } from '../account.service';
+import { AccountService } from '../services/account.service';
 
 @Component({
   selector: 'app-register',

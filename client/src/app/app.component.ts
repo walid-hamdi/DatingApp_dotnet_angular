@@ -4,11 +4,12 @@ import { MatCardModule } from '@angular/material/card';
 import { RouterOutlet } from '@angular/router';
 import { NavComponent } from './nav/nav.component';
 import { USER_KEY } from './model/constants';
-import { AccountService } from './account.service';
+import { AccountService } from './services/account.service';
 import { User, UserProfile } from './model/user';
 import { HomeComponent } from './home/home.component';
 import { HttpClient } from '@angular/common/http';
 import { ErrorComponent } from './error/error.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,7 @@ import { ErrorComponent } from './error/error.component';
     NavComponent,
     HomeComponent,
     ErrorComponent,
+    NgxSpinnerModule,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],

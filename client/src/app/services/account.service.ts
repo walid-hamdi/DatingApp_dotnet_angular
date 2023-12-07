@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { ReplaySubject, map } from 'rxjs';
-import { USER_KEY } from './model/constants';
-import { User, UserLogin } from './model/user';
+import { USER_KEY } from '../model/constants';
+import { User, UserLogin } from '../model/user';
 
 @Injectable({
   providedIn: 'root',

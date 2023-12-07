@@ -8,7 +8,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RouterModule, Router } from '@angular/router';
-import { AccountService } from '../account.service';
+import { AccountService } from '../services/account.service';
 import { UserLogin } from '../model/user';
 
 @Component({
