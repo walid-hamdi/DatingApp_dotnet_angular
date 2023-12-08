@@ -25,7 +25,7 @@ namespace API.Services
 
         }
 
-        public async Task<ImageUploadResult> AddPhoto(IFormFile file)
+        public async Task<ImageUploadResult> AddPhotoAsync(IFormFile file)
         {
             var uploadResult = new ImageUploadResult();
 
@@ -43,7 +43,7 @@ namespace API.Services
             return uploadResult;
         }
 
-        public async Task<DeletionResult> DeletePhoto(string publicId)
+        public async Task<DeletionResult> DeletePhotoAsync(string publicId)
         {
             var deleteParams = new DeletionParams(publicId);
             var result = await _cloudinary.DestroyAsync(deleteParams);
