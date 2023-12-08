@@ -1,4 +1,4 @@
-@for (member of members; track $index) {
+@for (member of members$ | async; track $index) {
 <mat-card
   class="member-card"
   style="display: inline-block; width: 300px; margin: 10px"

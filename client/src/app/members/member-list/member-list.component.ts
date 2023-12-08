@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-member-list',
@@ -21,12 +22,10 @@ import { RouterModule } from '@angular/router';
   styleUrl: './member-list.component.css',
 })
 export class MemberListComponent implements OnInit {
-  members: Member[] = [];
+  members$?: Observable<Member[]>;
   memberService = inject(MembersService);
 
   ngOnInit(): void {
-    this.memberService.getMembers().subscribe((members: any) => {
-      this.members = members;
-    });
+    this.members$ = this.memberService.getMembers();
   }
 }
