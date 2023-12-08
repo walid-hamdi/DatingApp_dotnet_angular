@@ -18,12 +18,10 @@ namespace API.Controllers
     public class UsersController : BaseController
     {
         private readonly IUserRepository _userRepository;
-
+        private readonly IMapper _mapper;
         private readonly IPhotoService _photoService;
 
-        private readonly IMapper _mapper;
-
-        public UsersController(IUserRepository userRepository, IMapper mapper, PhotoService photoService)
+        public UsersController(IUserRepository userRepository, IMapper mapper, IPhotoService photoService)
         {
             _userRepository = userRepository;
             _mapper = mapper;
@@ -37,7 +35,7 @@ namespace API.Controllers
             // return Ok(_mapper.Map<IEnumerable<MemberDto>>(user));
             return Ok(user);
         }
-        [HttpGet("{username}")]
+        [HttpGet("{username}", Name = "GetUser")]
         public async Task<ActionResult<MemberDto>> GetUser(string username)
         {
             var user = await _userRepository.GetMemberAsync(username);
@@ -63,6 +61,7 @@ namespace API.Controllers
         public async Task<ActionResult<PhotoDto>> AddPhoto(IFormFile file)
         {
             var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
+
             var result = await _photoService.AddPhotoAsync(file);
 
             if (result.Error != null) return BadRequest(result.Error.Message);
@@ -81,9 +80,10 @@ namespace API.Controllers
             user.Photos.Add(photo);
 
             if (await _userRepository.SaveAllAsync())
-                return _mapper.Map<PhotoDto>(photo);
+                // return _mapper.Map<PhotoDto>(photo);
+                return CreatedAtRoute("GetUser", new { username = user.UserName }, _mapper.Map<PhotoDto>(photo));
 
-            return BadRequest("Problem adding photo.");
+            return BadRequest("Problem adding   photo.");
         }
     }
 }

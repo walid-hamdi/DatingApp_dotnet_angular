@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UPR/qhEO/vTH7TVqWbqlDQoGxuomWM9Dcyo0Xish1wQtzWSPpefi5wLCxNIdgTFxaDuxpJbRpAouvxu7dgYbjQ==",
+  "dgSpecHash": "szInsxeBxhIvT1Z4lSOVES1xtCqqWzvwNm+/8f01aR7HvL5TyPOt7cS0Lu+zRAQbYEBUhBkugi7lBPNxsjpXNQ==",
   "success": true,
-  "projectFilePath": "E:\\Walid Info\\DotnetProjects\\DatingApp_dotnet_angular\\API\\API.csproj",
+  "projectFilePath": "E:\\Walid Info\\DotnetProjects\\DatingApp_dotnet_angular\\api\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\w.hamdi.RIEKERWORLD\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\w.hamdi.RIEKERWORLD\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

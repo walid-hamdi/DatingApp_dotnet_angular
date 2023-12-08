@@ -18,15 +18,19 @@ namespace API.Services
             var account = new Account
             (
                 config.Value.CloudName,
-                config.Value.APIKey,
-                config.Value.APISecret
+                config.Value.ApiKey,
+                config.Value.ApiSecret
             );
             _cloudinary = new Cloudinary(account);
+            // _cloudinary.Api.Secure = true;
 
         }
 
         public async Task<ImageUploadResult> AddPhotoAsync(IFormFile file)
         {
+
+            if (file == null) Console.WriteLine("No image");
+
             var uploadResult = new ImageUploadResult();
 
             if (file.Length > 0)

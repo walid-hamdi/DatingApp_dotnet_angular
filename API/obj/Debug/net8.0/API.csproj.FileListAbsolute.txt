@@ -528,3 +528,5 @@ C:\Users\ASUS\Documents\dotnetprojects\DatingApp_dotnet_angular\API\obj\Debug\ne
 C:\Users\ASUS\Documents\dotnetprojects\DatingApp_dotnet_angular\API\obj\Debug\net8.0\API.pdb
 C:\Users\ASUS\Documents\dotnetprojects\DatingApp_dotnet_angular\API\obj\Debug\net8.0\API.genruntimeconfig.cache
 C:\Users\ASUS\Documents\dotnetprojects\DatingApp_dotnet_angular\API\obj\Debug\net8.0\ref\API.dll
+E:\Walid Info\DotnetProjects\DatingApp_dotnet_angular\API\bin\Debug\net8.0\CloudinaryDotNet.dll
+E:\Walid Info\DotnetProjects\DatingApp_dotnet_angular\API\bin\Debug\net8.0\Newtonsoft.Json.dll
