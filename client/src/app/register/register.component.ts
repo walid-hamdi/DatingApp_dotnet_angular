@@ -2,10 +2,13 @@ import { Component, Output, EventEmitter, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserLogin } from '../model/user';
 import {
+  AbstractControl,
   FormControl,
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
+  ValidatorFn,
+  Validators,
 } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -32,6 +35,10 @@ import { AccountService } from '../services/account.service';
 export class RegisterComponent implements OnInit {
   @Output() onCancel = new EventEmitter();
   registerForm: FormGroup = new FormGroup({});
+  model: UserLogin = { username: '', password: '' };
+
+  private accountService = inject(AccountService);
+  private snackBar = inject(MatSnackBar);
 
   ngOnInit(): void {
     this.formInit();
@@ -39,16 +46,32 @@ export class RegisterComponent implements OnInit {
 
   formInit() {
     this.registerForm = new FormGroup({
-      username: new FormControl(),
-      password: new FormControl(),
-      confirmPassword: new FormControl(),
+      username: new FormControl('', Validators.required),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(8),
+      ]),
+      confirmPassword: new FormControl('', [
+        Validators.required,
+        this.matchValues('password'),
+      ]),
+    });
+
+    this.registerForm.controls['password'].valueChanges.subscribe(() => {
+      this.registerForm.controls['confirmPassword'].updateValueAndValidity();
     });
   }
 
-  model: UserLogin = { username: '', password: '' };
+  matchValues(matchTo: string): ValidatorFn {
+    return (control: AbstractControl) => {
+      const matchingControl = control.parent?.get(matchTo) as AbstractControl;
 
-  private accountService = inject(AccountService);
-  private snackBar = inject(MatSnackBar);
+      return control?.value === matchingControl?.value
+        ? null
+        : { isMatching: true };
+    };
+  }
 
   register() {
     this.accountService.register(this.model).subscribe(
