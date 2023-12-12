@@ -1,11 +1,11 @@
 <!-- registration.component.html -->
-<form class="example-form" #formRegister="ngForm">
+<form class="example-form" [formGroup]="registerForm">
   <mat-form-field class="example-full-width">
     <mat-label>Username</mat-label>
     <input
       matInput
       placeholder="Enter your username"
-      [(ngModel)]="model.username"
+      formControlName="username"
       name="username"
       required
     />
@@ -17,11 +17,26 @@
       matInput
       type="password"
       placeholder="Enter your password"
-      [(ngModel)]="model.password"
+      formControlName="password"
       name="password"
       required
     />
   </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Confirm Password</mat-label>
+    <input
+      matInput
+      type="password"
+      placeholder="Enter your confirm password"
+      formControlName="confirmPassword"
+      name="confirmPassword"
+      required
+    />
+  </mat-form-field>
+
+  <p>{{ registerForm.value | json }}</p>
+
+  <p>{{ registerForm.status | json }}</p>
 
   <button mat-raised-button color="primary" (click)="register()">
     Register
