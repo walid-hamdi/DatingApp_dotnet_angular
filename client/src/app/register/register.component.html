@@ -1,44 +1,58 @@
 <!-- registration.component.html -->
 <form class="example-form" [formGroup]="registerForm">
-  <mat-form-field class="example-full-width">
-    <mat-label>Username</mat-label>
-    <input
-      matInput
-      placeholder="Enter your username"
-      formControlName="username"
-      name="username"
-      required
-    />
+  <mat-form-field>
+    <input matInput placeholder="Username" formControlName="username" />
+    <mat-error *ngIf="registerForm.get('username')?.hasError('required')">
+      Username is required
+    </mat-error>
   </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <mat-label>Password</mat-label>
+  <mat-form-field>
     <input
       matInput
       type="password"
-      placeholder="Enter your password"
+      placeholder="Password"
       formControlName="password"
-      name="password"
-      required
     />
+    <mat-error *ngIf="registerForm.get('password')?.hasError('required')">
+      Password is required
+    </mat-error>
+    <mat-error *ngIf="registerForm.get('password')?.hasError('minlength')">
+      Password must be at least 4 characters long
+    </mat-error>
+    <mat-error *ngIf="registerForm.get('password')?.hasError('maxlength')">
+      Password cannot be more than 8 characters long
+    </mat-error>
   </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>Confirm Password</mat-label>
+
+  <mat-form-field>
     <input
       matInput
       type="password"
-      placeholder="Enter your confirm password"
+      placeholder="Confirm Password"
       formControlName="confirmPassword"
-      name="confirmPassword"
-      required
     />
+    <mat-error
+      *ngIf="registerForm.get('confirmPassword')?.hasError('required')"
+    >
+      Confirm Password is required
+    </mat-error>
+    <mat-error
+      *ngIf="
+        registerForm.hasError('isMatching') &&
+        registerForm.get('confirmPassword')?.dirty
+      "
+    >
+      Passwords do not match
+    </mat-error>
   </mat-form-field>
 
-  <p>{{ registerForm.value | json }}</p>
-
-  <p>{{ registerForm.status | json }}</p>
-
-  <button mat-raised-button color="primary" (click)="register()">
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="registerForm.invalid"
+  >
     Register
   </button>
   <button mat-raised-button color="info" (click)="cancel()">Cancel</button>
