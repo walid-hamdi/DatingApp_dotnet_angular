@@ -15,9 +15,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { UserLogin } from '../model/user';
 
 import { AccountService } from '../services/account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -38,11 +38,11 @@ import { AccountService } from '../services/account.service';
 export class RegisterComponent implements OnInit {
   @Output() onCancel = new EventEmitter();
   registerForm: FormGroup = new FormGroup({});
-  model: UserLogin = { username: '', password: '' };
-
+  error: any[] = [];
   private accountService = inject(AccountService);
   private snackBar = inject(MatSnackBar);
   private fb = inject(FormBuilder);
+  private router = inject(Router);
 
   ngOnInit(): void {
     this.formInit();
@@ -82,14 +82,15 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    this.accountService.register(this.model).subscribe(
+    console.log(this.registerForm.value);
+    this.accountService.register(this.registerForm.value).subscribe(
       (response) => {
         this.onCancel.emit(false);
+        this.router.navigateByUrl('/members');
       },
       ({ error }) => {
         this.openErrorToast(error);
-        this.model.username = '';
-        this.model.password = '';
+        // this.error = error;
       }
     );
   }

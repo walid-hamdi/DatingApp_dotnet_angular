@@ -1,5 +1,5 @@
 <!-- registration.component.html -->
-<form class="example-form" [formGroup]="registerForm">
+<form class="example-form" [formGroup]="registerForm" (submit)="register()">
   <mat-radio-group formControlName="gender">
     <mat-radio-button value="male">Male</mat-radio-button>
     <mat-radio-button value="female">Female</mat-radio-button>
