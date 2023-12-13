@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.DTO;
 using API.DTOs;
 using API.Entities;
 using API.Extensions;
@@ -23,8 +24,8 @@ namespace API.Helpers
             src.DateOfBirth.CalculateAge()));
 
             CreateMap<Photo, PhotoDto>();
-
             CreateMap<MemberUpdateDto, AppUser>();
+            CreateMap<RegisterDto, AppUser>();
         }
     }
 }
