@@ -1,10 +1,8 @@
-import { Component, Output, EventEmitter, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserLogin } from '../model/user';
+import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
-  FormControl,
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
@@ -15,7 +13,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { UserLogin } from '../model/user';
+
 import { AccountService } from '../services/account.service';
 
 @Component({
@@ -28,6 +29,7 @@ import { AccountService } from '../services/account.service';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatRadioModule,
     ReactiveFormsModule,
   ],
   templateUrl: './register.component.html',
@@ -48,7 +50,12 @@ export class RegisterComponent implements OnInit {
 
   formInit() {
     this.registerForm = this.fb.group({
+      gender: ['male'],
       username: ['', Validators.required],
+      knownAs: ['', Validators.required],
+      dateOfBirth: ['', Validators.required],
+      city: ['', Validators.required],
+      country: ['', Validators.required],
       password: [
         '',
         [Validators.required, Validators.minLength(4), Validators.maxLength(8)],
