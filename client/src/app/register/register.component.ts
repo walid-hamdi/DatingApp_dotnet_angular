@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UserLogin } from '../model/user';
 import {
   AbstractControl,
+  FormBuilder,
   FormControl,
   FormGroup,
   FormsModule,
@@ -39,23 +40,23 @@ export class RegisterComponent implements OnInit {
 
   private accountService = inject(AccountService);
   private snackBar = inject(MatSnackBar);
+  private fb = inject(FormBuilder);
 
   ngOnInit(): void {
     this.formInit();
   }
 
   formInit() {
-    this.registerForm = new FormGroup({
-      username: new FormControl('', Validators.required),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.minLength(4),
-        Validators.maxLength(8),
-      ]),
-      confirmPassword: new FormControl('', [
-        Validators.required,
-        this.matchValues('password'),
-      ]),
+    this.registerForm = this.fb.group({
+      username: ['', Validators.required],
+      password: [
+        '',
+        [Validators.required, Validators.minLength(4), Validators.maxLength(8)],
+      ],
+      confirmPassword: [
+        '',
+        [Validators.required, this.matchValues('password')],
+      ],
     });
 
     this.registerForm.controls['password'].valueChanges.subscribe(() => {
