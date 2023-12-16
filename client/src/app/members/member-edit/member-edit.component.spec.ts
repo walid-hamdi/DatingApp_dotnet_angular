@@ -9,6 +9,7 @@ describe('MemberEditComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [MemberEditComponent]
+      
     })
     .compileComponents();
     

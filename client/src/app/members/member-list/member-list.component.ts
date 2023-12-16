@@ -7,6 +7,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Pagination } from '../../model/pagination';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-member-list',
@@ -17,15 +19,33 @@ import { Observable } from 'rxjs';
     MatIconModule,
     MatButtonModule,
     RouterModule,
+    MatPaginatorModule,
   ],
   templateUrl: './member-list.component.html',
   styleUrl: './member-list.component.css',
 })
 export class MemberListComponent implements OnInit {
-  members$?: Observable<Member[]>;
+  members?: Member[];
   memberService = inject(MembersService);
+  pagination?: Pagination;
+  pageNumber = 1;
+  pageSize = 5;
 
   ngOnInit(): void {
-    this.members$ = this.memberService.getMembers();
+    this.loadMembers();
+  }
+
+  loadMembers() {
+    this.memberService
+      .getMembers(this.pageNumber, this.pageSize)
+      .subscribe((response) => {
+        this.members = response.result;
+        this.pagination = response.pagination;
+      });
+  }
+
+  changePage(event: any) {
+    this.pageNumber = event.page;
+    this.loadMembers();
   }
 }

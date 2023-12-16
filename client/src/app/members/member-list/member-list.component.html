@@ -1,4 +1,4 @@
-@for (member of members$ | async; track $index) {
+@for (member of members; track $index) {
 <mat-card
   class="member-card"
   style="display: inline-block; width: 300px; margin: 10px"
@@ -39,3 +39,9 @@
   No Users Yet
 </h3>
 }
+
+<mat-paginator
+  [length]="pagination?.totalItems || 0"
+  [pageSize]="pageSize"
+  (page)="changePage($event)"
+></mat-paginator>
