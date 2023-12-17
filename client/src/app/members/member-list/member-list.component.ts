@@ -1,14 +1,13 @@
-import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MembersService } from '../../members.service';
-import { Member } from '../../model/member';
+import { Component, OnInit, inject } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { RouterModule } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Pagination } from '../../model/pagination';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { RouterModule } from '@angular/router';
+import { MembersService } from '../../members.service';
+import { Member } from '../../model/member';
+import { Pagination } from '../../model/pagination';
 
 @Component({
   selector: 'app-member-list',
@@ -28,7 +27,7 @@ export class MemberListComponent implements OnInit {
   members?: Member[];
   memberService = inject(MembersService);
   pagination?: Pagination;
-  pageNumber = 1;
+  pageNumber = 0;
   pageSize = 5;
 
   ngOnInit(): void {
@@ -45,7 +44,7 @@ export class MemberListComponent implements OnInit {
   }
 
   changePage(event: any) {
-    this.pageNumber = event.page;
+    this.pageNumber = event.pageIndex + 1;
     this.loadMembers();
   }
 }

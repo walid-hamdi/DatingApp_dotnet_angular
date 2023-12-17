@@ -18,7 +18,7 @@ export class MembersService {
 
   getMembers(page?: number, itemsPerPage?: number) {
     let params = new HttpParams();
-    if (page !== null && itemsPerPage !== itemsPerPage) {
+    if (page !== null && itemsPerPage !== null) {
       params = params.append('pageNumber', page?.toString()!);
       params = params.append('pageSize', itemsPerPage?.toString()!);
     }
