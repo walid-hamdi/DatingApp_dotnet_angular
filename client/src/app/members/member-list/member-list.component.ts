@@ -8,6 +8,10 @@ import { RouterModule } from '@angular/router';
 import { MembersService } from '../../members.service';
 import { Member } from '../../model/member';
 import { Pagination } from '../../model/pagination';
+import { UserParams } from '../../model/userParams';
+import { AccountService } from '../../services/account.service';
+import { take } from 'rxjs';
+import { User } from '../../model/user';
 
 @Component({
   selector: 'app-member-list',
@@ -25,26 +29,32 @@ import { Pagination } from '../../model/pagination';
 })
 export class MemberListComponent implements OnInit {
   members?: Member[];
-  memberService = inject(MembersService);
+  private memberService = inject(MembersService);
+  private accountService = inject(AccountService);
   pagination?: Pagination;
-  pageNumber = 0;
-  pageSize = 5;
+  userParams?: UserParams;
+  user?: User;
+
+  constructor() {
+    this.accountService.currentUser$.pipe(take(1)).subscribe((user) => {
+      this.user = user!;
+      this.userParams = new UserParams(user!);
+    });
+  }
 
   ngOnInit(): void {
     this.loadMembers();
   }
 
   loadMembers() {
-    this.memberService
-      .getMembers(this.pageNumber, this.pageSize)
-      .subscribe((response) => {
-        this.members = response.result;
-        this.pagination = response.pagination;
-      });
+    this.memberService.getMembers(this.userParams!).subscribe((response) => {
+      this.members = response.result;
+      this.pagination = response.pagination;
+    });
   }
 
   changePage(event: any) {
-    this.pageNumber = event.pageIndex + 1;
+    this.userParams!.pageNumber = event.pageIndex + 1;
     this.loadMembers();
   }
 }

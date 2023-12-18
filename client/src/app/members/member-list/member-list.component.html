@@ -42,7 +42,7 @@
 
 <mat-paginator
   [length]="pagination?.totalItems || 0"
-  [pageSize]="pageSize"
+  [pageSize]="userParams?.pageSize"
   (page)="changePage($event)"
   style="margin-top: 20px; font-size: 18px"
 ></mat-paginator>

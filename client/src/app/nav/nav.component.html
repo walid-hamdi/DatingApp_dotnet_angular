@@ -20,7 +20,7 @@
 
   @if (accountService.currentUser$ | async) {
   <button mat-button [matMenuTriggerFor]="menu">
-    {{ (accountService.currentUser$ | async)?.username }}
+    {{ (accountService.currentUser$ | async)?.knownAs }}
   </button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item routerLink="/member/edit">Edit Profile</button>
