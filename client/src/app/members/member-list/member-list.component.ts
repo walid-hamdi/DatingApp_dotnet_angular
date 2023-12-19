@@ -4,6 +4,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { RouterModule } from '@angular/router';
 import { MembersService } from '../../members.service';
 import { Member } from '../../model/member';
@@ -12,6 +14,7 @@ import { UserParams } from '../../model/userParams';
 import { AccountService } from '../../services/account.service';
 import { take } from 'rxjs';
 import { User } from '../../model/user';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-member-list',
@@ -23,6 +26,9 @@ import { User } from '../../model/user';
     MatButtonModule,
     RouterModule,
     MatPaginatorModule,
+    MatInputModule,
+    MatSelectModule,
+    FormsModule,
   ],
   templateUrl: './member-list.component.html',
   styleUrl: './member-list.component.css',
@@ -34,6 +40,10 @@ export class MemberListComponent implements OnInit {
   pagination?: Pagination;
   userParams?: UserParams;
   user?: User;
+  genderList = [
+    { value: 'Male', display: 'Male' },
+    { value: 'Female', display: 'Female' },
+  ];
 
   constructor() {
     this.accountService.currentUser$.pipe(take(1)).subscribe((user) => {
@@ -55,6 +65,11 @@ export class MemberListComponent implements OnInit {
 
   changePage(event: any) {
     this.userParams!.pageNumber = event.pageIndex + 1;
+    this.loadMembers();
+  }
+
+  resetFilters() {
+    this.userParams = new UserParams(this.user!);
     this.loadMembers();
   }
 }

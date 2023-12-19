@@ -1,3 +1,37 @@
+<h3>Found: {{ pagination?.totalItems }}</h3>
+<form #filterForm="ngForm" (ngSubmit)="loadMembers()">
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Min Age"
+      name="minAge"
+      [(ngModel)]="userParams!.minAge"
+      type="number"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Max Age"
+      name="maxAge"
+      [(ngModel)]="userParams!.maxAge"
+      type="number"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Gender</mat-label>
+    <mat-select name="gender" [(ngModel)]="userParams!.gender">
+      @for (gender of genderList; track $index) {
+      <mat-option [value]="gender.value">{{ gender.display }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button type="submit">Apply</button>
+  <button mat-raised-button type="button" (click)="resetFilters()">
+    Reset
+  </button>
+</form>
+
 @for (member of members; track $index) {
 <mat-card
   class="member-card"
@@ -18,6 +52,7 @@
   <mat-card-content>
     <h2>{{ member.knownAs || "No Name" }}</h2>
     <p>{{ member.introduction || "No Introduction" }}</p>
+    <p>{{ member.age }}</p>
     <div class="button-container">
       <!-- Profile Button -->
       <button mat-icon-button [routerLink]="'/members/' + member.username">
