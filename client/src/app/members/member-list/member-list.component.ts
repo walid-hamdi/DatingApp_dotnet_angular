@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { RouterModule } from '@angular/router';
 import { MembersService } from '../../members.service';
 import { Member } from '../../model/member';
@@ -28,6 +29,7 @@ import { FormsModule } from '@angular/forms';
     MatPaginatorModule,
     MatInputModule,
     MatSelectModule,
+    MatButtonToggleModule,
     FormsModule,
   ],
   templateUrl: './member-list.component.html',

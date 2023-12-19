@@ -1,4 +1,20 @@
 <h3>Found: {{ pagination?.totalItems }}</h3>
+
+<div class="sorting-buttons">
+  <mat-button-toggle-group
+    name="sorting"
+    [(ngModel)]="userParams!.orderBy"
+    #sortingGroup="ngModel"
+  >
+    <mat-button-toggle value="lastActive" (click)="loadMembers()"
+      >Last Active</mat-button-toggle
+    >
+    <mat-button-toggle value="created" (click)="loadMembers()"
+      >Newest Members</mat-button-toggle
+    >
+  </mat-button-toggle-group>
+</div>
+
 <form #filterForm="ngForm" (ngSubmit)="loadMembers()">
   <mat-form-field>
     <input
