@@ -6,11 +6,18 @@ import { ActivatedRoute } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
+import { TimeagoModule } from 'ngx-timeago';
 
 @Component({
   selector: 'app-member-detail',
   standalone: true,
-  imports: [CommonModule, MatIconModule, MatTabsModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    MatIconModule,
+    MatTabsModule,
+    MatButtonModule,
+    TimeagoModule,
+  ],
   templateUrl: './member-detail.component.html',
   styleUrl: './member-detail.component.css',
 })

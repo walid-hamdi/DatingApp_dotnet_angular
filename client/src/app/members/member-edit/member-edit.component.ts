@@ -19,6 +19,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { PhotoEditorComponent } from '../photo-editor/photo-editor.component';
+import { TimeagoModule } from 'ngx-timeago';
 
 @Component({
   selector: 'app-member-edit',
@@ -32,6 +33,7 @@ import { PhotoEditorComponent } from '../photo-editor/photo-editor.component';
     MatFormFieldModule,
     MatButtonModule,
     PhotoEditorComponent,
+    TimeagoModule,
   ],
   templateUrl: './member-edit.component.html',
   styleUrl: './member-edit.component.css',

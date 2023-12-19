@@ -10,8 +10,10 @@
     </div>
     <div class="info-container">
       <p class="detail-item">Age: {{ member.age }}</p>
-      <p class="detail-item">Last Active: {{ member.lastActive | date }}</p>
-      <p class="detail-item">Member Since: {{ member.created | date }}</p>
+      <p class="detail-item">Last Active: {{ member.lastActive | timeago }}</p>
+      <p class="detail-item">
+        Member Since: {{ member.created | date : "dd MMM yyyy" }}
+      </p>
       @if (member.city && member.country) {
       <p class="detail-item">
         Location: {{ member.city }}, {{ member.country }}
