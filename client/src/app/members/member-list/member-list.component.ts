@@ -1,22 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSelectModule } from '@angular/material/select';
 import { RouterModule } from '@angular/router';
 import { MembersService } from '../../members.service';
 import { Member } from '../../model/member';
 import { Pagination } from '../../model/pagination';
-import { UserParams } from '../../model/userParams';
-import { AccountService } from '../../services/account.service';
-import { take } from 'rxjs';
 import { User } from '../../model/user';
-import { FormsModule } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { UserParams } from '../../model/userParams';
 import { MemberCardComponent } from '../member-card/member-card.component';
 
 @Component({

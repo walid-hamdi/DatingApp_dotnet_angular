@@ -20,3 +20,10 @@
     </div>
   </div>
 </div>
+
+<mat-paginator
+  [length]="pagination?.totalItems || 0"
+  [pageSize]="pageSize"
+  (page)="changePage($event)"
+  style="margin-top: 20px; font-size: 18px"
+></mat-paginator>
