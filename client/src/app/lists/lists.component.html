@@ -15,9 +15,9 @@
   </mat-radio-group>
 
   <div>
-    <div *ngFor="let member of members">
-      <app-member-card [member]="member"></app-member-card>
-    </div>
+    @for(member of members; track $index){
+    <app-member-card [member]="member"></app-member-card>
+    }
   </div>
 </div>
 
