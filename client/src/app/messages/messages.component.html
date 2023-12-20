@@ -1,3 +1,7 @@
-@for(message of messages; track $index){
-<p>{{ message?.content }}</p>
-}
+<mat-radio-group [(ngModel)]="container">
+  <ng-container *ngFor="let radioButton of radioButtons">
+    <mat-radio-button [value]="radioButton.value">
+      <mat-icon>{{ radioButton.icon }}</mat-icon> {{ radioButton.label }}
+    </mat-radio-button>
+  </ng-container>
+</mat-radio-group>
