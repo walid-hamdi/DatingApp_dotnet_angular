@@ -16,6 +16,7 @@ import { AccountService } from '../../services/account.service';
 import { take } from 'rxjs';
 import { User } from '../../model/user';
 import { FormsModule } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-member-list',
@@ -38,6 +39,7 @@ import { FormsModule } from '@angular/forms';
 export class MemberListComponent implements OnInit {
   members?: Member[];
   memberService = inject(MembersService);
+  snackBar = inject(MatSnackBar);
   pagination?: Pagination;
   userParams?: UserParams;
   user?: User;
@@ -72,4 +74,19 @@ export class MemberListComponent implements OnInit {
     this.userParams = this.memberService.resetUserParams();
     this.loadMembers();
   }
+
+  addLike(member: Member) {
+    this.memberService.addLike(member.username).subscribe(() => {
+      this.openErrorToast(`You have liked ${member.knownAs}`);
+    });
+  }
+
+  openErrorToast = (message: string) => {
+    this.snackBar.open(message, 'Close', {
+      duration: 5000,
+      verticalPosition: 'top',
+      horizontalPosition: 'center',
+      panelClass: ['error-toast'],
+    });
+  };
 }
