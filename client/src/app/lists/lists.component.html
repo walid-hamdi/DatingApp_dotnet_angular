@@ -1,1 +1,22 @@
-<p>lists works!</p>
+<div>
+  <h2>
+    {{ predicated == "liked" ? "Members I like" : "Members who like me" }}
+  </h2>
+</div>
+
+<div class="container">
+  <mat-radio-group
+    name="predicate"
+    [(ngModel)]="predicated"
+    (change)="loadLikes()"
+  >
+    <mat-radio-button value="liked">Members I like</mat-radio-button>
+    <mat-radio-button value="likedBy">Members who like me</mat-radio-button>
+  </mat-radio-group>
+
+  <div>
+    <div *ngFor="let member of members">
+      <app-member-card [member]="member"></app-member-card>
+    </div>
+  </div>
+</div>

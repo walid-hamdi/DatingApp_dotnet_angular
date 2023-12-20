@@ -17,14 +17,13 @@ import { take } from 'rxjs';
 import { User } from '../../model/user';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MemberCardComponent } from '../member-card/member-card.component';
 
 @Component({
   selector: 'app-member-list',
   standalone: true,
   imports: [
     CommonModule,
-    MatCardModule,
-    MatIconModule,
     MatButtonModule,
     RouterModule,
     MatPaginatorModule,
@@ -32,6 +31,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatSelectModule,
     MatButtonToggleModule,
     FormsModule,
+    MemberCardComponent,
   ],
   templateUrl: './member-list.component.html',
   styleUrl: './member-list.component.css',
@@ -39,7 +39,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class MemberListComponent implements OnInit {
   members?: Member[];
   memberService = inject(MembersService);
-  snackBar = inject(MatSnackBar);
   pagination?: Pagination;
   userParams?: UserParams;
   user?: User;
@@ -74,19 +73,4 @@ export class MemberListComponent implements OnInit {
     this.userParams = this.memberService.resetUserParams();
     this.loadMembers();
   }
-
-  addLike(member: Member) {
-    this.memberService.addLike(member.username).subscribe(() => {
-      this.openErrorToast(`You have liked ${member.knownAs}`);
-    });
-  }
-
-  openErrorToast = (message: string) => {
-    this.snackBar.open(message, 'Close', {
-      duration: 5000,
-      verticalPosition: 'top',
-      horizontalPosition: 'center',
-      panelClass: ['error-toast'],
-    });
-  };
 }
