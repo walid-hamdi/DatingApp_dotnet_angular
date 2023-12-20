@@ -5,6 +5,7 @@ import { Member } from './model/member';
 import { map, of } from 'rxjs';
 import { PaginationResult } from './model/pagination';
 import { UserParams } from './model/userParams';
+import { User } from './model/user';
 
 @Injectable({
   providedIn: 'root',
@@ -41,8 +42,12 @@ export class MembersService {
   }
 
   getMember(username: string) {
-    const member = this.members?.find((member) => member.username === username);
-    if (member !== undefined) return of(member);
+    const member = [...this.memberCache.values()]
+      .reduce((arr, element) => arr.concat(element.result), [])
+      .find((member: Member) => member.username === username);
+
+    if (member) return of(member);
+
     return this.http.get<Member>(`${this.baseUrl}/users/${username}`);
   }
 
