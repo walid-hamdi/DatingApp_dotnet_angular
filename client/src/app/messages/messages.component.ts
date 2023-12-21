@@ -31,9 +31,10 @@ export class MessagesComponent {
   messageService = inject(MessageService);
   messages: Message[] = [];
   pagination?: Pagination;
-  container = 'Outbox';
+  container = 'Unread';
   pageNumber = 1;
   pageSize = 5;
+  loading = false;
 
   radioButtons = [
     { value: 'unread', icon: 'email', label: 'Unread' },
@@ -46,11 +47,13 @@ export class MessagesComponent {
   }
 
   loadMessages() {
+    this.loading = true;
     this.messageService
       .getMessages(this.pageNumber, this.pageSize, this.container)
       .subscribe((response) => {
         this.messages = response.result;
         this.pagination = response.pagination;
+        this.loading = false;
       });
   }
   changePage(event: any) {
