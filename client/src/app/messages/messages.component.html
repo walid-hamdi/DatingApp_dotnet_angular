@@ -1,3 +1,69 @@
-@for(message of messages; track $index){
-<p>{{ message?.content }}</p>
-}
+<div class="custom-row">
+  <mat-button-toggle-group
+    name="container"
+    [(ngModel)]="container"
+    (change)="loadMessages()"
+  >
+    <mat-button-toggle value="unread">
+      <mat-icon>email</mat-icon> Unread
+    </mat-button-toggle>
+    <mat-button-toggle value="inbox">
+      <mat-icon>drafts</mat-icon> Inbox
+    </mat-button-toggle>
+    <mat-button-toggle value="outbox">
+      <mat-icon>send</mat-icon> Outbox
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+
+<div *ngIf="messages?.length === 0">
+  <h3>No messages.</h3>
+</div>
+
+<div *ngIf="messages?.length! > 0">
+  <table class="custom-table" style="cursor: pointer">
+    <tr>
+      <th style="width: 40%">Message</th>
+      <th style="width: 20%">From / To</th>
+      <th style="width: 20%">Sent / Received</th>
+      <th style="width: 20%"></th>
+    </tr>
+    <tr
+      *ngFor="let message of messages"
+      [routerLink]="
+        container === 'outbox'
+          ? '/members/' + message.recipientUsername
+          : '/members/' + message.senderUsername
+      "
+    >
+      <td>{{ message.content }}</td>
+      <td>
+        <div *ngIf="container === 'outbox'">
+          <img
+            src="{{ message.recipientPhotoUrl || './assets/placeholder.png' }}"
+            alt="{{ message.recipientUsername }}"
+          />
+          <strong>{{ message.recipientUsername | titlecase }}</strong>
+        </div>
+
+        <div *ngIf="container !== 'outbox'">
+          <img
+            src="{{ message.senderPhotoUrl || './assets/placeholder.png' }}"
+            alt="{{ message.senderUsername }}"
+          />
+          <strong>{{ message.senderUsername | titlecase }}</strong>
+        </div>
+      </td>
+      <td>{{ message.messageSent | timeago }}</td>
+      <td>
+        <button class="custom-button">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<mat-paginator
+  [length]="pagination?.totalItems || 0"
+  [pageSize]="pageSize"
+  (page)="changePage($event)"
+></mat-paginator>

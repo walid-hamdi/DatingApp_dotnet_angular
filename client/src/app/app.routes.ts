@@ -3,13 +3,13 @@ import { HomeComponent } from './home/home.component';
 import { ListsComponent } from './lists/lists.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { MemberListComponent } from './members/member-list/member-list.component';
-import { MessagesComponent } from './messages/messages.component';
 import { authGuard } from './guards/auth.guard';
 import { ErrorComponent } from './error/error.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ErrorServerComponent } from './error-server/error-server.component';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { preventUnsavedChangesGuard } from './guards/prevent-unsaved-changes.guard';
+import { MessagesComponent } from './messages/messages.component';
 
 export const routes: Routes = [
   {
