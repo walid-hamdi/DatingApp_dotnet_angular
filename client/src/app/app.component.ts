@@ -43,4 +43,9 @@ export class AppComponent implements OnInit {
 
   // TODO: add gallery photos (use detailed page)
   // CanDeactivate : for prevent exit before you apply the changes
+
+  // TODO: outbox data are wrong , it should show the message of the logged in profile
+  // and i shouldn't enter when i click to it because it's my profile
+
+  // TODO: Handle the login and logout issue
 }
