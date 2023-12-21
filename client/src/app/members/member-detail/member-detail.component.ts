@@ -1,15 +1,15 @@
-import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Member } from '../../model/member';
-import { MembersService } from '../../members.service';
-import { ActivatedRoute } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
-import { MatTabsModule } from '@angular/material/tabs';
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTabGroup, MatTabsModule } from '@angular/material/tabs';
+import { ActivatedRoute } from '@angular/router';
 import { TimeagoModule } from 'ngx-timeago';
-import { MemberMessagesComponent } from '../member-messages/member-messages.component';
+import { MembersService } from '../../members.service';
+import { Member } from '../../model/member';
 import { Message } from '../../model/message';
 import { MessageService } from '../../services/message.service';
+import { MemberMessagesComponent } from '../member-messages/member-messages.component';
 
 @Component({
   selector: 'app-member-detail',
@@ -26,21 +26,27 @@ import { MessageService } from '../../services/message.service';
   styleUrl: './member-detail.component.css',
 })
 export class MemberDetailComponent implements OnInit {
+  @ViewChild(MatTabGroup) tabGroup!: MatTabGroup;
   messages: Message[] = [];
   member?: Member;
   memberService = inject(MembersService);
   activeRouter = inject(ActivatedRoute);
   messageService = inject(MessageService);
-  selectedTabIndex = 0;
 
   ngOnInit(): void {
-    const username = this.activeRouter.snapshot.paramMap.get('username');
+    this.activeRouter.data.subscribe((data) => {
+      this.member = data['member'];
+    });
+  }
 
-    if (username) {
-      this.memberService.getMember(username).subscribe((member) => {
-        this.member = member;
-      });
-    }
+  ngAfterViewInit(): void {
+    this.activeRouter.queryParams.subscribe((params) => {
+      params['tab'] ? this.selectTab(params['tab']) : this.selectTab(0);
+    });
+  }
+
+  selectTab(index: number) {
+    this.tabGroup.selectedIndex = index;
   }
 
   tabChanged(event: any) {

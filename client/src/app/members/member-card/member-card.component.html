@@ -29,7 +29,11 @@
       </button>
       <!-- Message Button -->
       <button mat-icon-button>
-        <mat-icon>message</mat-icon>
+        <mat-icon
+          [routerLink]="'/members/' + member.username"
+          [queryParams]="{ tab: 3 }"
+          >message</mat-icon
+        >
       </button>
     </div>
   </mat-card-content>

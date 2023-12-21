@@ -10,6 +10,7 @@ import { ErrorServerComponent } from './error-server/error-server.component';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { preventUnsavedChangesGuard } from './guards/prevent-unsaved-changes.guard';
 import { MessagesComponent } from './messages/messages.component';
+import { MemberDetailedResolver } from './resolvers/member-detailed.resolver';
 
 export const routes: Routes = [
   {
@@ -28,6 +29,7 @@ export const routes: Routes = [
       {
         path: 'members/:username',
         component: MemberDetailComponent,
+        resolve: { member: MemberDetailedResolver },
       },
       {
         path: 'member/edit',
