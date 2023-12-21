@@ -42,11 +42,24 @@
 </mat-card>
 
 <mat-card-footer class="custom-card-footer">
-  <form class="custom-form">
+  <form
+    class="custom-form"
+    #messageForm="ngForm"
+    (ngSubmit)="sendMessage()"
+    autocomplete="off"
+  >
     <mat-form-field class="custom-input-group">
-      <input matInput type="text" placeholder="Send a private message" />
+      <input
+        matInput
+        type="text"
+        placeholder="Send a private message"
+        name="messageContent"
+        [(ngModel)]="messageContent"
+        required
+      />
       <button
         mat-icon-button
+        [disabled]="!messageForm.valid"
         class="custom-button custom-primary"
         type="submit"
       >

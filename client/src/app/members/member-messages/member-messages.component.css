@@ -11,6 +11,9 @@
 
 .custom-card-footer {
   padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .custom-input-group {
@@ -19,13 +22,13 @@
 }
 
 .custom-chat-img {
-  max-width: 50px;
   height: auto;
   border-radius: 50%;
   margin-right: 12px;
 }
 
 .custom-rounded-circle {
+  max-width: 40px;
   border-radius: 50%;
 }
 
@@ -46,11 +49,11 @@
 
 .custom-form {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
 }
 
 .custom-input-group {
-  flex: 1;
+  flex-grow: 1;
   margin-right: 8px;
 }
 
@@ -66,4 +69,20 @@
 .custom-primary {
   background-color: #dc3545;
   color: #fff;
+}
+
+.custom-chat {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.custom-chat li {
+  margin-bottom: 16px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+.custom-chat-body p {
+  margin: 0;
 }
