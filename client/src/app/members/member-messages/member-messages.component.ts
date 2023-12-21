@@ -7,7 +7,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 
 import { Message } from '../../model/message';
-import { MessageService } from '../../services/message.service';
 
 @Component({
   selector: 'app-member-messages',
@@ -23,21 +22,7 @@ import { MessageService } from '../../services/message.service';
   templateUrl: './member-messages.component.html',
   styleUrl: './member-messages.component.css',
 })
-export class MemberMessagesComponent implements OnInit {
+export class MemberMessagesComponent {
+  @Input() messages: Message[] = [];
   @Input() username?: string;
-  messages?: Message[];
-  messageService = inject(MessageService);
-
-  ngOnInit(): void {
-    this.loadMessages();
-  }
-
-  loadMessages() {
-    this.messageService
-      .getMessageThread(this.username!)
-      .subscribe((messages) => {
-        this.messages = messages;
-        console.log('Mess:', this.messages);
-      });
-  }
 }

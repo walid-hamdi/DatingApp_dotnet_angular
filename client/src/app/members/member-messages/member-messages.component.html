@@ -1,11 +1,11 @@
 <mat-card class="custom-card">
   <mat-card-content class="custom-card-content">
-    @if (messages?.length ===0) {
+    @if (messages.length ===0) {
     <div>No messages yet... say hi by using the message box below</div>
     }
   </mat-card-content>
 
-  @if (messages?.length!>0) {
+  @if (messages.length>0) {
   <ul class="custom-chat">
     @for (message of messages; track $index) {
     <li>

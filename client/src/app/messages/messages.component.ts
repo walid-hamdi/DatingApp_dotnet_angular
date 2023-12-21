@@ -29,7 +29,7 @@ import { MatTableModule } from '@angular/material/table';
 })
 export class MessagesComponent {
   messageService = inject(MessageService);
-  messages?: Message[];
+  messages: Message[] = [];
   pagination?: Pagination;
   container = 'Outbox';
   pageNumber = 1;
