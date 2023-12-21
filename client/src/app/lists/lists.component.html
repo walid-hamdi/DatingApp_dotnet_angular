@@ -15,7 +15,7 @@
   </mat-radio-group>
 
   <div>
-    @for(member of members; track $index){
+    @for(member of members; track member?.id){
     <app-member-card [member]="member"></app-member-card>
     }
   </div>

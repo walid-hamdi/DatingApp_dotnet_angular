@@ -37,7 +37,7 @@
   <mat-form-field>
     <mat-label>Gender</mat-label>
     <mat-select name="gender" [(ngModel)]="userParams!.gender">
-      @for (gender of genderList; track $index) {
+      @for (gender of genderList; track gender.value) {
       <mat-option [value]="gender.value">{{ gender.display }}</mat-option>
       }
     </mat-select>
@@ -48,7 +48,7 @@
   </button>
 </form>
 
-@for (member of members; track $index) {
+@for (member of members; track member.id) {
 <app-member-card [member]="member"></app-member-card>
 }@empty {
 <h3 style="display: flex; justify-content: center; align-items: center">

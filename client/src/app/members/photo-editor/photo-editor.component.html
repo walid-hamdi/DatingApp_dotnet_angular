@@ -1,5 +1,5 @@
 <div class="photo-list">
-  @for ( photo of member?.photos; track $index) {
+  @for ( photo of member?.photos; track photo.id) {
   <div class="photo-item">
     <img [src]="photo.url" alt="Photo {{ $index + 1 }}" />
     <button mat-icon-button (click)="deletePhoto($index)">

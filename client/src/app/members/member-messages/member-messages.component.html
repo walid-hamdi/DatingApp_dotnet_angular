@@ -7,7 +7,7 @@
 
   @if (messages.length>0) {
   <ul class="custom-chat">
-    @for (message of messages; track $index) {
+    @for (message of messages; track message.id) {
     <li>
       <div>
         <span class="custom-chat-img float-right">
