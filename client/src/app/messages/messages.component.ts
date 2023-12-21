@@ -35,6 +35,12 @@ export class MessagesComponent {
   pageNumber = 1;
   pageSize = 5;
 
+  radioButtons = [
+    { value: 'unread', icon: 'email', label: 'Unread' },
+    { value: 'inbox', icon: 'inbox', label: 'Inbox' },
+    { value: 'outbox', icon: 'send', label: 'Outbox' },
+  ];
+
   ngOnInit(): void {
     this.loadMessages();
   }
