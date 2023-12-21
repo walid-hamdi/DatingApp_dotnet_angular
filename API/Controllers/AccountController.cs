@@ -4,6 +4,7 @@ using API.DTOs;
 using API.Entities;
 using API.Interfaces;
 using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,14 +12,18 @@ namespace API.Controllers
 {
     public class AccountController : BaseController
     {
-        private readonly DataContext _context;
         private readonly ITokenService _tokenService;
         private readonly IMapper _mapper;
-        public AccountController(DataContext context, ITokenService tokenService, IMapper mapper)
+        private readonly UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
+        public AccountController(UserManager<AppUser> userManager, ITokenService tokenService,
+         IMapper mapper,
+         SignInManager<AppUser> signInManager)
         {
-            _context = context;
             _tokenService = tokenService;
             _mapper = mapper;
+            _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         [HttpPost("register")]
@@ -30,8 +35,9 @@ namespace API.Controllers
 
             user.UserName = registerDto.Username.ToLower();
 
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+            var result = await _userManager.CreateAsync(user, registerDto.Password);
+
+            if (!result.Succeeded) return BadRequest(result.Errors);
 
             return new UserDto
             {
@@ -45,17 +51,23 @@ namespace API.Controllers
 
         private async Task<bool> UserExists(string username)
         {
-            return await _context.Users.AnyAsync(user => user.UserName == username.ToLower());
+            return await _userManager.Users.AnyAsync(user => user.UserName == username.ToLower());
         }
 
         [HttpPost("login")]
         public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
         {
-            var findUser = await _context.Users.SingleOrDefaultAsync((user) => user.UserName == loginDto.Username);
+            var findUser = await _userManager.Users.SingleOrDefaultAsync((user) =>
+            user.UserName == loginDto.Username.ToLower());
+
             if (findUser == null)
             {
                 return Unauthorized("Invalid username.");
             }
+
+            var result = await _signInManager.CheckPasswordSignInAsync(findUser, loginDto.Password, false);
+
+            if (!result.Succeeded) return Unauthorized();
 
             return new UserDto
             {
