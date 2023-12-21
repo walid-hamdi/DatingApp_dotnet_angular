@@ -56,6 +56,19 @@ export class MessagesComponent {
         this.loading = false;
       });
   }
+
+  handleDelete(event: Event, id: number) {
+    event.stopPropagation();
+    this.deleteMessage(id);
+  }
+
+  deleteMessage(id: number) {
+    this.messageService.deleteMessage(id).subscribe(() => {
+      const findTheId = this.messages.findIndex((message) => message.id === id);
+      this.messages.splice(findTheId, 1);
+    });
+  }
+
   changePage(event: any) {
     if (this.pageNumber !== event.pageIndex + 1) {
       this.pageNumber = event.pageIndex + 1;

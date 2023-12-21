@@ -60,13 +60,18 @@
       </td>
       <td>{{ message.messageSent | timeago }}</td>
       <td>
-        <button class="custom-button">Delete</button>
+        <button
+          class="custom-button"
+          (click)="handleDelete($event, message.id)"
+        >
+          Delete
+        </button>
       </td>
     </tr>
     }
   </table>
 </div>
-} @if (pagination && !loading) {
+} @if (pagination && !loading && messages.length>0) {
 <mat-paginator
   [length]="pagination.totalItems || 0"
   [pageSize]="pageSize"
