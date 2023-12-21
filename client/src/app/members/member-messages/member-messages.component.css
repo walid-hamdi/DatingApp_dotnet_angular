@@ -1,0 +1,69 @@
+/* Global styles or your-component.component.scss */
+
+.custom-card {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.custom-card-content {
+  padding: 16px;
+}
+
+.custom-card-footer {
+  padding: 16px;
+}
+
+.custom-input-group {
+  display: flex;
+  align-items: center;
+}
+
+.custom-chat-img {
+  max-width: 50px;
+  height: auto;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.custom-rounded-circle {
+  border-radius: 50%;
+}
+
+.custom-chat-body {
+  display: flex;
+  align-items: center;
+}
+
+.custom-header {
+  margin-bottom: 8px;
+}
+
+.custom-text-muted,
+.custom-text-danger,
+.custom-text-success {
+  margin-right: 8px;
+}
+
+.custom-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.custom-input-group {
+  flex: 1;
+  margin-right: 8px;
+}
+
+.custom-button {
+  cursor: pointer;
+  border: none;
+}
+
+.custom-button:hover {
+  background-color: #c82333;
+}
+
+.custom-primary {
+  background-color: #dc3545;
+  color: #fff;
+}

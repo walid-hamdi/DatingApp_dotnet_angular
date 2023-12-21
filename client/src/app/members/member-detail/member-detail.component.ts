@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
 import { TimeagoModule } from 'ngx-timeago';
+import { MemberMessagesComponent } from '../member-messages/member-messages.component';
 
 @Component({
   selector: 'app-member-detail',
@@ -17,6 +18,7 @@ import { TimeagoModule } from 'ngx-timeago';
     MatTabsModule,
     MatButtonModule,
     TimeagoModule,
+    MemberMessagesComponent,
   ],
   templateUrl: './member-detail.component.html',
   styleUrl: './member-detail.component.css',

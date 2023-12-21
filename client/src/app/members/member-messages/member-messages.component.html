@@ -1,0 +1,57 @@
+<mat-card class="custom-card">
+  <mat-card-content class="custom-card-content">
+    @if (messages?.length ===0) {
+    <div>No messages yet... say hi by using the message box below</div>
+    }
+  </mat-card-content>
+
+  @if (messages?.length!>0) {
+  <ul class="custom-chat">
+    @for (message of messages; track $index) {
+    <li>
+      <div>
+        <span class="custom-chat-img float-right">
+          <img
+            [src]="message.senderPhotoUrl || './assets/placeholder.png'"
+            alt="{{ message.senderUsername }}"
+            class="custom-rounded-circle"
+          />
+        </span>
+        <div class="custom-chat-body">
+          <div class="custom-header">
+            <small class="custom-text-muted">
+              <span class="custom-fa-clock-o">{{
+                message.messageSent | timeago
+              }}</span>
+              @if (!message.dateRead && message.senderUsername !== username)
+              {<span class="custom-text-danger"> (unread) </span>}
+              @if(message.dateRead && message.senderUsername !== username) {
+              <span class="custom-text-success">
+                (read) {{ message.dateRead | timeago }}
+              </span>
+              }
+            </small>
+          </div>
+          <p>{{ message.content }}</p>
+        </div>
+      </div>
+    </li>
+    }
+  </ul>
+  }
+</mat-card>
+
+<mat-card-footer class="custom-card-footer">
+  <form class="custom-form">
+    <mat-form-field class="custom-input-group">
+      <input matInput type="text" placeholder="Send a private message" />
+      <button
+        mat-icon-button
+        class="custom-button custom-primary"
+        type="submit"
+      >
+        <mat-icon>send</mat-icon>
+      </button>
+    </mat-form-field>
+  </form>
+</mat-card-footer>
