@@ -12,7 +12,12 @@
   <button mat-button routerLink="/messages" routerLinkActive="active">
     Messages
   </button>
-  <button mat-button routerLink="/admin" routerLinkActive="active">
+  <button
+    mat-button
+    *appHasRole="['Admin', 'Moderator']"
+    routerLink="/admin"
+    routerLinkActive="active"
+  >
     Admin
   </button>
   }

@@ -10,6 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { RouterModule, Router } from '@angular/router';
 import { AccountService } from '../services/account.service';
 import { UserLogin } from '../model/user';
+import { HasRoleDirective } from '../directives/has-role.directive';
 
 @Component({
   selector: 'app-nav',
@@ -23,6 +24,7 @@ import { UserLogin } from '../model/user';
     FormsModule,
     MatMenuModule,
     RouterModule,
+    HasRoleDirective,
   ],
 
   templateUrl: './nav.component.html',
