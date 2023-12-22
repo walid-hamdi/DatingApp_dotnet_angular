@@ -23,9 +23,9 @@ builder.Services.AddScoped<LogUserActivity>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 
-builder.Services.AddIdentityCore<AppUser>(opt =>
+builder.Services.AddIdentityCore<AppUser>(option =>
 {
-    opt.Password.RequireNonAlphanumeric = false;
+    option.Password.RequireNonAlphanumeric = false;
 }).AddRoles<AppRole>()
 .AddRoleManager<RoleManager<AppRole>>()
 .AddSignInManager<SignInManager<AppUser>>()
@@ -42,6 +42,12 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         ValidateIssuer = false,
         ValidateAudience = false,
     };
+});
+
+builder.Services.AddAuthorization(option =>
+{
+    option.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
+    option.AddPolicy("ModeratePhotoRole", policy => policy.RequireRole("Admin", "Moderator"));
 });
 
 var app = builder.Build();
