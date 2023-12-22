@@ -5,6 +5,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { UserEditRolesComponent } from '../../modals/user-edit-roles/user-edit-roles.component';
 
 @Component({
   selector: 'app-user-management',
@@ -16,6 +18,7 @@ import { CommonModule } from '@angular/common';
 export class UserManagementComponent implements OnInit {
   users?: Partial<User[]>;
   adminService = inject(AdminService);
+  dialog = inject(MatDialog);
 
   ngOnInit(): void {
     this.getUsersWithRoles();
@@ -29,5 +32,16 @@ export class UserManagementComponent implements OnInit {
       });
   }
 
-  editUser(user: User) {}
+  editUser(user: User) {
+    const dialogRef = this.dialog.open(UserEditRolesComponent, {
+      data: {
+        username: user.username,
+        roles: user.roles.map((role) => ({ name: role, isSelected: false })),
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(result);
+    });
+  }
 }
