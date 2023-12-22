@@ -11,6 +11,7 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { preventUnsavedChangesGuard } from './guards/prevent-unsaved-changes.guard';
 import { MessagesComponent } from './messages/messages.component';
 import { MemberDetailedResolver } from './resolvers/member-detailed.resolver';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 
 export const routes: Routes = [
   {
@@ -44,6 +45,7 @@ export const routes: Routes = [
         path: 'messages',
         component: MessagesComponent,
       },
+      { path: 'admin', component: AdminPanelComponent },
     ],
   },
   { path: 'not-found', component: NotfoundComponent },
