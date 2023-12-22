@@ -44,8 +44,8 @@ export class NavComponent implements OnInit {
       },
       ({ error }) => {
         this.openErrorToast(error);
-        this.model.username = '';
-        this.model.password = '';
+        // this.model.username = '';
+        // this.model.password = '';
       }
     );
   }

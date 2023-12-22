@@ -12,6 +12,7 @@ import { preventUnsavedChangesGuard } from './guards/prevent-unsaved-changes.gua
 import { MessagesComponent } from './messages/messages.component';
 import { MemberDetailedResolver } from './resolvers/member-detailed.resolver';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import { adminGuard } from './guards/admin.guard';
 
 export const routes: Routes = [
   {
@@ -45,7 +46,11 @@ export const routes: Routes = [
         path: 'messages',
         component: MessagesComponent,
       },
-      { path: 'admin', component: AdminPanelComponent },
+      {
+        path: 'admin',
+        component: AdminPanelComponent,
+        canActivate: [adminGuard],
+      },
     ],
   },
   { path: 'not-found', component: NotfoundComponent },

@@ -17,8 +17,7 @@ export class AccountService {
     return this.http.post<User>(`${this.baseUrl}/account/login`, model).pipe(
       map((user: User) => {
         if (user) {
-          localStorage.setItem(USER_KEY, JSON.stringify(user));
-          this.currentUserSource.next(user);
+          this.setCurrentUser(user);
         }
       })
     );
@@ -28,19 +27,30 @@ export class AccountService {
     return this.http.post<User>(`${this.baseUrl}/account/register`, model).pipe(
       map((user: User) => {
         if (user) {
-          localStorage.setItem(USER_KEY, JSON.stringify(user));
-          this.currentUserSource.next(user);
+          this.setCurrentUser(user);
         }
       })
     );
   }
 
-  setCurrentUser(user: User | null) {
+  setCurrentUser(user: User) {
+    user.roles = [];
+    const roles = this.getDecodedToken(user!.token).role;
+    if (Array.isArray(roles)) {
+      user!.roles = roles;
+    } else {
+      user!.roles.push(roles);
+    }
+    localStorage.setItem(USER_KEY, JSON.stringify(user));
     this.currentUserSource.next(user);
   }
 
   logout() {
     localStorage.removeItem(USER_KEY);
     this.currentUserSource.next(null);
+  }
+
+  getDecodedToken(token: string) {
+    return JSON.parse(atob(token.split('.')[1]));
   }
 }

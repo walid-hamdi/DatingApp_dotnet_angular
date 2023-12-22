@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     const user: User | null = JSON.parse(localStorage.getItem(USER_KEY)!);
-    this.accountService.setCurrentUser(user);
+    if (user) this.accountService.setCurrentUser(user);
   }
 
   // Add guards

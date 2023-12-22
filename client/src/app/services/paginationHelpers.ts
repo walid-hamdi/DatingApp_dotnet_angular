@@ -12,7 +12,6 @@ export function getPaginatedResult<T>(
   return http.get<Member[]>(url, { observe: 'response', params }).pipe(
     map((response) => {
       paginatedResult.result = response.body!;
-      console.log(paginatedResult.result);
       if (response.headers.get('Pagination') !== null) {
         paginatedResult.pagination = JSON.parse(
           response.headers.get('Pagination')!
