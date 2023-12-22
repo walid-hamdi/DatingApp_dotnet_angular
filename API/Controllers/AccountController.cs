@@ -26,34 +26,6 @@ namespace API.Controllers
             _signInManager = signInManager;
         }
 
-        [HttpPost("register")]
-        public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
-        {
-            if (await UserExists(registerDto.Username.ToLower())) return BadRequest("Username is taken.");
-
-            var user = _mapper.Map<AppUser>(registerDto);
-
-            user.UserName = registerDto.Username.ToLower();
-
-            var result = await _userManager.CreateAsync(user, registerDto.Password);
-
-            if (!result.Succeeded) return BadRequest(result.Errors);
-
-            return new UserDto
-            {
-                Username = user.UserName,
-                Token = _tokenService.GenerateToken(user),
-                KnownAs = user.KnownAs,
-                Gender = user.Gender,
-            };
-
-        }
-
-        private async Task<bool> UserExists(string username)
-        {
-            return await _userManager.Users.AnyAsync(user => user.UserName == username.ToLower());
-        }
-
         [HttpPost("login")]
         public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
         {
@@ -72,11 +44,45 @@ namespace API.Controllers
             return new UserDto
             {
                 Username = findUser.UserName,
-                Token = _tokenService.GenerateToken(findUser),
+                Token = await _tokenService.GenerateToken(findUser),
                 // PhotoUrl = findUser.Photos.FirstOrDefault(photo => photo.IsMain)?.Url,
                 KnownAs = findUser.KnownAs,
                 Gender = findUser.Gender,
             };
         }
+
+        [HttpPost("register")]
+        public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
+        {
+            if (await UserExists(registerDto.Username.ToLower())) return BadRequest("Username is taken.");
+
+            var user = _mapper.Map<AppUser>(registerDto);
+
+            user.UserName = registerDto.Username.ToLower();
+
+            var result = await _userManager.CreateAsync(user, registerDto.Password);
+
+            if (!result.Succeeded) return BadRequest(result.Errors);
+
+            var roleResult = await _userManager.AddToRoleAsync(user, "Member");
+
+            if (!roleResult.Succeeded) return BadRequest(result.Errors);
+
+            return new UserDto
+            {
+                Username = user.UserName,
+                Token = await _tokenService.GenerateToken(user),
+                KnownAs = user.KnownAs,
+                Gender = user.Gender,
+            };
+
+        }
+
+        private async Task<bool> UserExists(string username)
+        {
+            return await _userManager.Users.AnyAsync(user => user.UserName == username.ToLower());
+        }
+
+
     }
 }
