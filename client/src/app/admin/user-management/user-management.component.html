@@ -1,0 +1,22 @@
+<div class="user-table-container">
+  <table class="user-table">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Roles</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (user of users; track $index) {
+      <tr>
+        <td>{{ user?.username }}</td>
+        <td>{{ user!.roles.join(", ") }}</td>
+        <td>
+          <button (click)="editUser(user!)">Edit</button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
