@@ -667,3 +667,4 @@ C:\Users\ASUS\documents\polyglotmate\DatingApp_dotnet_angular\api\obj\Debug\net8
 C:\Users\ASUS\documents\polyglotmate\DatingApp_dotnet_angular\api\obj\Debug\net8.0\API.genruntimeconfig.cache
 C:\Users\ASUS\documents\polyglotmate\DatingApp_dotnet_angular\api\obj\Debug\net8.0\ref\API.dll
 E:\Walid Info\DotnetProjects\DatingApp_dotnet_angular\API\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\ASUS\documents\polyglotmate\DatingApp_dotnet_angular\api\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Walid Info\\DotnetProjects\\DatingApp_dotnet_angular\\API\\API.csproj": {}
+    "C:\\Users\\ASUS\\documents\\polyglotmate\\DatingApp_dotnet_angular\\api\\API.csproj": {}
   },
   "projects": {
-    "E:\\Walid Info\\DotnetProjects\\DatingApp_dotnet_angular\\API\\API.csproj": {
+    "C:\\Users\\ASUS\\documents\\polyglotmate\\DatingApp_dotnet_angular\\api\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Walid Info\\DotnetProjects\\DatingApp_dotnet_angular\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\documents\\polyglotmate\\DatingApp_dotnet_angular\\api\\API.csproj",
         "projectName": "API",
-        "projectPath": "E:\\Walid Info\\DotnetProjects\\DatingApp_dotnet_angular\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\w.hamdi.RIEKERWORLD\\.nuget\\packages\\",
-        "outputPath": "E:\\Walid Info\\DotnetProjects\\DatingApp_dotnet_angular\\API\\obj\\",
+        "projectPath": "C:\\Users\\ASUS\\documents\\polyglotmate\\DatingApp_dotnet_angular\\api\\API.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ASUS\\documents\\polyglotmate\\DatingApp_dotnet_angular\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\w.hamdi.RIEKERWORLD\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

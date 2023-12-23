@@ -16,7 +16,6 @@ import { MatListModule } from '@angular/material/list';
 export class UserEditRolesComponent {
   adminService = inject(AdminService);
   dialogRef = inject(MatDialogRef<UserEditRolesComponent>);
-  selectedRoles: { name: string; isSelected: boolean }[];
 
   constructor(
     @Inject(MAT_DIALOG_DATA)
@@ -24,15 +23,10 @@ export class UserEditRolesComponent {
       username: string;
       roles: { name: string; isSelected: boolean }[];
     }
-  ) {
-    this.selectedRoles = this.data.roles.map((role) => ({
-      name: role.name,
-      isSelected: false,
-    }));
-  }
+  ) {}
 
   onSave() {
-    const selectedRoleNames = this.selectedRoles
+    const selectedRoleNames = this.data.roles
       .filter((role) => role.isSelected)
       .map((role) => role.name);
 

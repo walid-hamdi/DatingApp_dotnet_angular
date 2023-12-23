@@ -33,10 +33,29 @@ export class UserManagementComponent implements OnInit {
   }
 
   editUser(user: User) {
+    // const dialogRef = this.dialog.open(UserEditRolesComponent, {
+    //   data: {
+    //     username: user.username,
+    //     roles: user.roles.map((role) => ({ name: role, isSelected: true })),
+    //   },
+    // });
+
+    // dialogRef.afterClosed().subscribe((result) => {
+    //   console.log(result);
+    // });
+
+    const allRoles = ['Admin', 'Moderator', 'Member'];
+    const userRoles = user.roles;
+
+    const rolesWithSelection = allRoles.map((role) => ({
+      name: role,
+      isSelected: userRoles.includes(role),
+    }));
+
     const dialogRef = this.dialog.open(UserEditRolesComponent, {
       data: {
         username: user.username,
-        roles: user.roles.map((role) => ({ name: role, isSelected: false })),
+        roles: rolesWithSelection,
       },
     });
 

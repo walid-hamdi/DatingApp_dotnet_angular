@@ -1,9 +1,5 @@
 <div *ngFor="let role of data.roles; let i = index" class="checkbox-item">
-  <mat-checkbox
-    [(ngModel)]="selectedRoles[i].isSelected"
-    [value]="role.name"
-    color="primary"
-  >
+  <mat-checkbox [(ngModel)]="role.isSelected" color="primary">
     {{ role.name }}
   </mat-checkbox>
 </div>
