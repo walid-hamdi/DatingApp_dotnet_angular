@@ -668,3 +668,9 @@ C:\Users\ASUS\documents\polyglotmate\DatingApp_dotnet_angular\api\obj\Debug\net8
 C:\Users\ASUS\documents\polyglotmate\DatingApp_dotnet_angular\api\obj\Debug\net8.0\ref\API.dll
 E:\Walid Info\DotnetProjects\DatingApp_dotnet_angular\API\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\ASUS\documents\polyglotmate\DatingApp_dotnet_angular\api\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\ASUS\documents\polyglotmate\DatingApp_dotnet_angular\api\bin\Debug\net8.0\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\ASUS\documents\polyglotmate\DatingApp_dotnet_angular\api\bin\Debug\net8.0\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\ASUS\documents\polyglotmate\DatingApp_dotnet_angular\api\bin\Debug\net8.0\Microsoft.Owin.dll
+C:\Users\ASUS\documents\polyglotmate\DatingApp_dotnet_angular\api\bin\Debug\net8.0\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\ASUS\documents\polyglotmate\DatingApp_dotnet_angular\api\bin\Debug\net8.0\Microsoft.Owin.Security.dll
+C:\Users\ASUS\documents\polyglotmate\DatingApp_dotnet_angular\api\bin\Debug\net8.0\Owin.dll

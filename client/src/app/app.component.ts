@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { HttpClient } from '@angular/common/http';
 import { ErrorComponent } from './error/error.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { PresenceService } from './services/presence.service';
 
 @Component({
   selector: 'app-root',
@@ -31,10 +32,14 @@ export class AppComponent implements OnInit {
 
   http = inject(HttpClient);
   accountService = inject(AccountService);
+  presence = inject(PresenceService);
 
   ngOnInit(): void {
     const user: User | null = JSON.parse(localStorage.getItem(USER_KEY)!);
-    if (user) this.accountService.setCurrentUser(user);
+    if (user) {
+      this.accountService.setCurrentUser(user);
+      this.presence.createHubConnection(user);
+    }
   }
 
   // Add guards
