@@ -10,6 +10,7 @@ import { Member } from '../../model/member';
 import { Message } from '../../model/message';
 import { MessageService } from '../../services/message.service';
 import { MemberMessagesComponent } from '../member-messages/member-messages.component';
+import { PresenceService } from '../../services/presence.service';
 
 @Component({
   selector: 'app-member-detail',
@@ -32,6 +33,7 @@ export class MemberDetailComponent implements OnInit {
   memberService = inject(MembersService);
   activeRouter = inject(ActivatedRoute);
   messageService = inject(MessageService);
+  presenceService = inject(PresenceService);
 
   ngOnInit(): void {
     this.activeRouter.data.subscribe((data) => {

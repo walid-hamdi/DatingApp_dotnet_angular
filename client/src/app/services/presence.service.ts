@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from '../../environments/environment';
 import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
 import { User } from '../model/user';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,10 @@ export class PresenceService {
   snackBar = inject(MatSnackBar);
   hubUrl = environment.hubUrl;
   private hubConnection?: HubConnection;
+  onlineUsersSource: BehaviorSubject<string[]> = new BehaviorSubject<string[]>(
+    []
+  );
+  onlineUsers$ = this.onlineUsersSource.asObservable();
 
   createHubConnection(user: User) {
     this.hubConnection = new HubConnectionBuilder()
@@ -28,6 +33,10 @@ export class PresenceService {
 
     this.hubConnection.on('UserIsOffline', (username) => {
       this.openErrorToast(`${username} has disconnected.`);
+    });
+
+    this.hubConnection.on('GetOnlineUsers', (usernames: string[]) => {
+      this.onlineUsersSource.next(usernames);
     });
   }
 

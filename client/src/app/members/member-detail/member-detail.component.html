@@ -1,6 +1,19 @@
 <div class="container">
   @if (member) {
-  <div class="member-detail-container">
+  <div
+    class="member-detail-container"
+    [class.is-online]="
+      (presenceService.onlineUsers$ | async)?.includes(member.username)
+    "
+  >
+    <div class="online-status">
+      <mat-icon
+        *ngIf="
+          (presenceService.onlineUsers$ | async)?.includes(member.username)
+        "
+        >fiber_manual_record</mat-icon
+      >
+    </div>
     <div class="header-container">
       <img
         [src]="member.photoUrl || './assets/placeholder.png'"

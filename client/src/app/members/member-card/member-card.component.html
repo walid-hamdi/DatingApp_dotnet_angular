@@ -15,6 +15,21 @@
     "
   />
   <mat-card-content>
+    <div class="online-status">
+      <mat-icon
+        [ngClass]="{
+          'is-online': (presenceService.onlineUsers$ | async)!.includes(
+            member.username
+          ),
+          'is-offline': !(presenceService.onlineUsers$ | async)!.includes(
+            member.username
+          )
+        }"
+      >
+        fiber_manual_record
+      </mat-icon>
+    </div>
+
     <h2>{{ member.knownAs || "No Name" }}</h2>
     <p>{{ member.introduction || "No Introduction" }}</p>
     <p>{{ member.age }}</p>

@@ -35,10 +35,12 @@ export class AppComponent implements OnInit {
   presence = inject(PresenceService);
 
   ngOnInit(): void {
-    const user: User | null = JSON.parse(localStorage.getItem(USER_KEY)!);
-    if (user) {
-      this.accountService.setCurrentUser(user);
-      this.presence.createHubConnection(user);
+    if (typeof localStorage !== 'undefined') {
+      const user: User | null = JSON.parse(localStorage.getItem(USER_KEY)!);
+      if (user) {
+        this.accountService.setCurrentUser(user);
+        this.presence.createHubConnection(user);
+      }
     }
   }
 
