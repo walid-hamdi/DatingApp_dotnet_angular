@@ -27,16 +27,21 @@ import { FormsModule, NgForm } from '@angular/forms';
 })
 export class MemberMessagesComponent {
   @ViewChild('messageForm') messageForm?: NgForm;
-  @Input() messages: Message[] = [];
   @Input() username?: string;
   messageContent?: string;
+  messageThread: any[] = [];
   messageService = inject(MessageService);
+
+  ngOnInit() {
+    this.messageService.messageThread$.subscribe((messages) => {
+      this.messageThread = messages;
+    });
+  }
 
   sendMessage() {
     this.messageService
       .sendMessage(this.username!, this.messageContent!)
-      .subscribe((message: any) => {
-        this.messages.push(message);
+      .then(() => {
         this.messageForm!.reset();
       });
   }

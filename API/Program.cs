@@ -23,6 +23,7 @@ builder.Services.AddScoped<IMessageRepository, MessageRepository>();
 builder.Services.AddScoped<LogUserActivity>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
+builder.Services.AddSignalR();
 builder.Services.AddSingleton<PresenceTrack>();
 
 builder.Services.AddIdentityCore<AppUser>(option =>
@@ -66,8 +67,6 @@ builder.Services.AddAuthorization(option =>
     option.AddPolicy("ModeratePhotoRole", policy => policy.RequireRole("Admin", "Moderator"));
 });
 
-builder.Services.AddSignalR();
-
 var app = builder.Build();
 
 // seed data into db
@@ -97,5 +96,5 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 app.MapHub<PresenceHub>("hubs/presence");
-app.MapHub<PresenceHub>("hubs/message");
+app.MapHub<MessageHub>("hubs/message");
 app.Run();

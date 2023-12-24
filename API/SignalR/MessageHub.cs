@@ -1,4 +1,5 @@
 
+using API.Data;
 using API.DTOs;
 using API.Entities;
 using API.Extensions;
@@ -26,6 +27,7 @@ namespace API.SignalR
             var httpContext = Context.GetHttpContext();
             var otherUser = httpContext.Request.Query["user"].ToString();
             var groupName = GetGroupName(Context.User.GetUsername(), otherUser);
+            await Groups.AddToGroupAsync(Context.ConnectionId, groupName);
 
             var messages = _messageRepository.GetMessageThread(Context.User.GetUsername(), otherUser);
             await Clients.Group(groupName).SendAsync("ReceiveMessageThread", messages);
@@ -59,11 +61,12 @@ namespace API.SignalR
 
             _messageRepository.AddMessage(message);
 
+
             if (await _messageRepository.SaveAllAsync())
             {
                 var group = GetGroupName(sender.UserName, recipient.UserName);
-                await Clients.Group(group).SendAsync("NewMessage", _mapper.Map<UserDto>(message));
-
+                await Clients.Group(group).SendAsync("NewMessage",
+                 _mapper.Map<MessageDto>(message));
             }
         }
 

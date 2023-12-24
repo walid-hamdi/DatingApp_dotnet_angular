@@ -1,5 +1,3 @@
-/* Global styles or your-component.component.scss */
-
 .custom-card {
   width: 100%;
   margin-top: 16px;
@@ -19,22 +17,25 @@
 .custom-input-group {
   display: flex;
   align-items: center;
+  flex-grow: 1;
+  margin-right: 8px;
 }
 
-.custom-chat-img {
+.custom-chat-item {
+  display: flex;
+  align-items: center;
+}
+
+.custom-chat-img img {
   height: auto;
   border-radius: 50%;
   margin-right: 12px;
+  width: 40px;
+  height: 40px;
 }
 
 .custom-rounded-circle {
-  max-width: 40px;
   border-radius: 50%;
-}
-
-.custom-chat-body {
-  display: flex;
-  align-items: center;
 }
 
 .custom-header {
@@ -50,11 +51,6 @@
 .custom-form {
   display: flex;
   align-items: center;
-}
-
-.custom-input-group {
-  flex-grow: 1;
-  margin-right: 8px;
 }
 
 .custom-button {
