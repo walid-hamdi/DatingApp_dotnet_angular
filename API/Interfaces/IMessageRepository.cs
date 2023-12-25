@@ -5,11 +5,16 @@ using System.Threading.Tasks;
 using API.DTOs;
 using API.Entities;
 using API.Helpers;
+using Microsoft.VisualBasic;
 
 namespace API.Interfaces
 {
     public interface IMessageRepository
     {
+        void AddGroup(Group group);
+        void RemoveConnection(Connection connection);
+        Task<Connection> GetConnection(string collectionId);
+        Task<Group> GetMessageGroup(string groupName);
         void AddMessage(Message message);
         void DeleteMessage(Message message);
         Task<Message> GetMessage(int id);
