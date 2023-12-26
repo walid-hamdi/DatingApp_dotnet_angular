@@ -11,13 +11,13 @@ namespace API.Entities
         {
         }
 
-        public Connection(int connectionId, string username)
+        public Connection(string connectionId, string username)
         {
             ConnectionId = connectionId;
             Username = username;
         }
 
-        public int ConnectionId { get; set; }
+        public string ConnectionId { get; set; }
         public string Username { get; set; }
     }
 }
