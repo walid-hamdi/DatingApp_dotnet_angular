@@ -1,8 +1,12 @@
 <mat-card class="custom-card">
-  <mat-card-content class="custom-card-content">
+  <mat-card-content
+    class="custom-card-content"
+    #messageContainer
+    style="height: 400px; overflow-y: auto"
+  >
     @if ((messageService.messageThread$ | async)?.length === 0) {
     <div>No messages yet... say hi by using the message box below</div>
-    }@else {
+    } @else {
     <ul class="custom-chat">
       @for (message of messageThread; track message.id) {
       <li>

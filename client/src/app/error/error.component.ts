@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-error',
@@ -10,7 +11,7 @@ import { Component, inject } from '@angular/core';
   styleUrl: './error.component.css',
 })
 export class ErrorComponent {
-  baseUrl = 'https://localhost:5001/api';
+  baseUrl = environment.apiUrl;
   errors: [] = [];
   // constructor(private http: HttpClient) {}
   http = inject(HttpClient);

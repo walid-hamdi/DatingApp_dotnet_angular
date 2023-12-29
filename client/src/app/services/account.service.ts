@@ -4,6 +4,7 @@ import { Observable, ReplaySubject, map } from 'rxjs';
 import { USER_KEY } from '../model/constants';
 import { User, UserLogin } from '../model/user';
 import { PresenceService } from './presence.service';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ export class AccountService {
   private currentUserSource = new ReplaySubject<User | null>(1);
   private http = inject(HttpClient);
   private presence = inject(PresenceService);
-  private baseUrl = 'https://localhost:5001/api';
+  private baseUrl = environment.apiUrl;
   currentUser$: Observable<User | null> = this.currentUserSource.asObservable();
 
   login(model: UserLogin) {

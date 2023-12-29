@@ -7,12 +7,9 @@
     "
   >
     <div class="online-status">
-      <mat-icon
-        *ngIf="
-          (presenceService.onlineUsers$ | async)?.includes(member.username)
-        "
-        >fiber_manual_record</mat-icon
-      >
+      @if ((presenceService.onlineUsers$ | async)?.includes(member.username)) {
+      <mat-icon>fiber_manual_record</mat-icon>
+      }
     </div>
     <div class="header-container">
       <img

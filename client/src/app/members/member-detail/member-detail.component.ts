@@ -3,7 +3,7 @@ import { Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabGroup, MatTabsModule } from '@angular/material/tabs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TimeagoModule } from 'ngx-timeago';
 import { MembersService } from '../../members.service';
 import { Member } from '../../model/member';
@@ -36,6 +36,7 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
   messageService = inject(MessageService);
   presenceService = inject(PresenceService);
   accountService = inject(AccountService);
+  // router = inject(Router);
   user?: User;
 
   constructor() {
@@ -44,6 +45,7 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
       .subscribe((user: User | null) => {
         this.user = user!;
       });
+    // this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   ngOnInit(): void {

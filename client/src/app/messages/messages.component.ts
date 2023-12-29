@@ -10,6 +10,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
+import { ConfirmService } from '../confirm.service';
 
 @Component({
   selector: 'app-messages',
@@ -29,6 +30,7 @@ import { MatTableModule } from '@angular/material/table';
 })
 export class MessagesComponent {
   messageService = inject(MessageService);
+  confirmService = inject(ConfirmService);
   messages: Message[] = [];
   pagination?: Pagination;
   container = 'Unread';
@@ -63,10 +65,23 @@ export class MessagesComponent {
   }
 
   deleteMessage(id: number) {
-    this.messageService.deleteMessage(id).subscribe(() => {
-      const findTheId = this.messages.findIndex((message) => message.id === id);
-      this.messages.splice(findTheId, 1);
-    });
+    this.confirmService
+      .confirm(
+        'Delete Confirmation',
+        'Are you sure you want to delete this message? This action cannot be undone.',
+        'Cancel',
+        'Delete'
+      )
+      .subscribe((confirmed) => {
+        if (confirmed) {
+          this.messageService.deleteMessage(id).subscribe(() => {
+            const findTheId = this.messages.findIndex(
+              (message) => message.id === id
+            );
+            this.messages.splice(findTheId, 1);
+          });
+        }
+      });
   }
 
   changePage(event: any) {

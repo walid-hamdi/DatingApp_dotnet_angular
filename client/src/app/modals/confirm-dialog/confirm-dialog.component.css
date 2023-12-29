@@ -1,0 +1,37 @@
+/* Custom styles for a modern and clean dialog appearance */
+
+.mat-dialog-container {
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mat-dialog-title {
+  font-size: 1.8rem;
+  color: #2196f3; /* Material blue color */
+  margin-bottom: 8px;
+}
+
+.mat-dialog-content {
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+}
+
+.mat-dialog-actions {
+  justify-content: flex-end;
+}
+
+/* Styling for the buttons */
+button {
+  font-size: 1.4rem;
+  margin-left: 8px;
+}
+
+button.cancel-button {
+  color: #757575; /* Gray color for cancel button */
+}
+
+button.confirm-button {
+  color: #fff;
+  background-color: #2196f3; /* Material blue color for confirm button */
+}

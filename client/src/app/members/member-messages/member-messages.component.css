@@ -10,6 +10,7 @@
 .custom-card-footer {
   padding: 16px;
   display: flex;
+  min-width: 100%;
   justify-content: center;
   align-items: center;
 }
@@ -77,6 +78,9 @@
   margin-bottom: 16px;
   border-bottom: 1px solid #ddd;
   padding-bottom: 8px;
+}
+.custom-chat li:last-child {
+  border-bottom: none;
 }
 
 .custom-chat-body p {

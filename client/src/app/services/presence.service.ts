@@ -3,7 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from '../../environments/environment';
 import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
 import { User } from '../model/user';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, take } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -28,15 +28,28 @@ export class PresenceService {
     this.hubConnection.start().catch((err) => this.openErrorToast(err));
 
     this.hubConnection.on('UserIsOnline', (username) => {
-      this.openErrorToast(`${username} has connected.`);
+      this.onlineUsers$.pipe(take(1)).subscribe((usernames) => {
+        this.onlineUsersSource.next([...usernames, username]);
+      });
     });
 
     this.hubConnection.on('UserIsOffline', (username) => {
-      this.openErrorToast(`${username} has disconnected.`);
+      this.onlineUsers$.pipe(take(1)).subscribe((usernames) => {
+        this.onlineUsersSource.next([
+          ...usernames.filter((name) => name !== username),
+        ]);
+      });
     });
 
     this.hubConnection.on('GetOnlineUsers', (usernames: string[]) => {
       this.onlineUsersSource.next(usernames);
+    });
+
+    this.hubConnection.on('NewMessageReceived', ({ username, knownAs }) => {
+      this.openErrorToast(knownAs + ' has sent you a new message!');
+
+      // TODO:
+      // this.router.navigateByUrl(`/members/${username}?tab=3`)
     });
   }
 
